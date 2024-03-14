@@ -26,13 +26,18 @@ h6 {
 }
 
 .about-content p {
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
+    margin-top: 1rem;
     text-align: justify;
     text-justify: inter-word;
 }
 
 .about-content img {
     margin-bottom: 1rem;
-    height: 200px;
     border-radius: 8px;
+    height: 200px;
+}
+
+.double-content p {
+    flex: 0 0 75%;
 }

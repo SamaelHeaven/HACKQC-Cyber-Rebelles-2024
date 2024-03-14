@@ -7,3 +7,18 @@
     text-decoration: none;
     color: black;
 }
+
+.footer-logo {
+    width: 5rem;
+    height: 5rem;
+}
+
+.info-footer {
+    gap: 8rem;
+}
+
+@media (max-width: 770px) {
+    .info-footer {
+        gap: 2rem;
+    }
+}

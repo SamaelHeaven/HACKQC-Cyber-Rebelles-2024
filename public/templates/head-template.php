@@ -25,6 +25,7 @@ $title ??= "";
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
             integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
             crossorigin=""></script>
+    <script src="https://kit.fontawesome.com/74353d55c6.js" crossorigin="anonymous"></script>
     <script type="module" src="/public/javascript/app.js"></script>
     <title><?= $title ?></title>
 </head>

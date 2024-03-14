@@ -1,4 +1,4 @@
-<div id="map" class="min-vh-100 w-100"></div>
+<div id="map" class="w-100 h-100 flex-grow-1 map"></div>
 <script>
     let map = L.map('map').setView([51.505, -0.09], 13);
 

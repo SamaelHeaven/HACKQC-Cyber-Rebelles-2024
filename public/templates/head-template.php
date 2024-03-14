@@ -30,11 +30,11 @@ $title ??= "";
     <title><?= $title ?></title>
 </head>
 <body>
-<main>
+<main class="d-flex flex-column justify-content-between min-vh-100">
     <nav class="navbar bg-body-tertiary">
         <div class="container-fluid">
             <header>
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand nav-name d-flex align-items-center" href="/public/views/home/">
                     <img src="/public/images/fitQuestLogo.png" alt="Logo" class="d-inline-block align-text-top nav-logo">
                     FitQuest
                 </a>

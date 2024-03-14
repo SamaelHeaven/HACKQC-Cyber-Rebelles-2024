@@ -40,9 +40,9 @@ $title ??= "";
                         FitQuest
                     </a>
                     <div class="d-flex align-items-center gap-4 ">
-                        <a href="/public/views/home/">Accueil</a>
-                        <a href="#">À propos</a>
-                        <a href="#">Publier un évènement</a>
+                        <a class="nav-link" href="/public/views/home/">Accueil</a>
+                        <a class="nav-link" href="/public/views/about">À propos</a>
+                        <a class="nav-link" href="#">Publier un évènement</a>
                     </div>
                 </div>
             </header>

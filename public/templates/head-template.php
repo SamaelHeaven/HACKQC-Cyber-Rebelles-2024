@@ -2,6 +2,7 @@
 
 /*
  * string $title: The title of the page
+ * string $mainClasses: The CSS classes to apply to the main element
  * CurrentPage $currentPage: The current page of the site
  */
 
@@ -9,6 +10,7 @@ require_once $_SERVER["DOCUMENT_ROOT"] . "/src/php/models/CurrentPage.php";
 
 $title ??= "";
 $currentPage ??= CurrentPage::Home;
+$mainClasses ??= "";
 
 ?>
 <!DOCTYPE html>
@@ -35,7 +37,7 @@ $currentPage ??= CurrentPage::Home;
     <title><?= $title ?></title>
 </head>
 <body>
-<main class="d-flex flex-column justify-content-between min-vh-100">
+<main class="<?= $mainClasses ?>">
     <nav class="navbar bg-body-tertiary">
         <div class="container-fluid">
             <header class="w-100">

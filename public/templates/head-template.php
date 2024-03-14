@@ -39,7 +39,7 @@ $title ??= "";
                         <img src="/public/images/fitQuestLogo.png" alt="Logo" class="d-inline-block align-text-top nav-logo">
                         FitQuest
                     </a>
-                    <div class="d-flex align-items-center gap-4">
+                    <div class="d-flex align-items-center gap-4 ">
                         <a href="/public/views/home/">Accueil</a>
                         <a href="#">À propos</a>
                         <a href="#">Publier un évènement</a>

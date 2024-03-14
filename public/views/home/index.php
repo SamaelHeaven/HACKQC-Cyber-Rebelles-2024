@@ -11,8 +11,8 @@ $headTemplate->setVariable("currentPage", CurrentPage::Home);
 $legsTemplate = new Template($_SERVER["DOCUMENT_ROOT"] . "/public/templates/legs-template.php");
 
 $mapTemplate = new Template($_SERVER["DOCUMENT_ROOT"] . "/public/templates/map-template.php");
-$mapTemplate->setVariable("latitude", 46.033357);
-$mapTemplate->setVariable("longitude", -73.121334);
+$mapTemplate->setVariable("latitude", 45.751258);
+$mapTemplate->setVariable("longitude", -73.442155);
 
 ?>
 <?= $headTemplate->render() ?>

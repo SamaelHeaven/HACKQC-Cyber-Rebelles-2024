@@ -48,6 +48,9 @@ if (isset($_POST['organizer']) &&
     $timeStart = DatabaseService::escapeString($_POST['timeStart']);
     $timeEnd = DatabaseService::escapeString($_POST['timeEnd']);
 
+    $formTemplate->setVariable('organizer', $organizer);
+    $formTemplate->setVariable('eventName', $eventName);
+    $formTemplate->setVariable('description', $description);
     if (!($organizer == "" ||
     $eventName == "" ||
     $description == "" ||
@@ -57,11 +60,13 @@ if (isset($_POST['organizer']) &&
     $timeEnd == "")) {
 
         if ($dateStart <= $dateEnd){
-            if ($dateStart == $dateEnd && $timeStart < $timeEnd){
+            $formTemplate->setVariable('dateStart', $dateStart);
+            $formTemplate->setVariable('dateEnd', $dateEnd);
+            if (!($dateStart == $dateEnd && $timeStart >= $timeEnd)){
                 DatabaseService::query("INSERT INTO event(sport_terrain_id, organizer, eventname, description, datestart, dateend, timestart, timeend) values('$terrainId','$organizer','$eventName','$description','$dateStart','$dateEnd','$timeStart','$timeEnd') ");
                 header('Location: ' . "/public/views/home");
             } else {
-                $errorMessage = "L'heure de fin se situe après celle de début";
+                $errorMessage = "L'événement ne peut pas se terminer avant d'avoir commencé ";
             }
         } else {
             $errorMessage = "La date de fin ne peut pas être avant la date de début ";

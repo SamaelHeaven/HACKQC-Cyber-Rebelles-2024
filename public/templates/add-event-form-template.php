@@ -1,6 +1,14 @@
 <?php
 $errorMessage ??= "";
 $terrainId ??= "";
+
+$organizer ??= "";
+$eventName ??= "";
+$description ??= "";
+$dateStart ??= "";
+$dateEnd ??= "";
+$timeStart ??= "";
+$timeEnd ??= "";
 ?>
 
 <div class="wrapper-md">
@@ -11,31 +19,31 @@ $terrainId ??= "";
     <div class="row">
         <div class="col-md-6 mb-3">
             <label class="form-label" for="organizer">Organisateur</label>
-            <input class="form-control d-block w-100" type="text" id="organizer" name="organizer">
+            <input class="form-control d-block w-100" type="text" id="organizer" name="organizer" value="<?= $organizer ?>">
         </div>
         <div class="col-md-6 mb-3">
             <label class="form-label" for="eventName">Nom de l'événement</label>
-            <input class="form-control d-block w-100" type="text" id="eventName" name="eventName">
+            <input class="form-control d-block w-100" type="text" id="eventName" name="eventName" value="<?= $eventName ?>">
         </div>
         <div class="mb-3">
             <label class="form-label" for="description">Description</label>
-            <textarea class="form-control d-block w-100" name="description" id="description" cols="30" rows="10"></textarea>
+            <textarea class="form-control d-block w-100" name="description" id="description" cols="30" rows="10"><?= $description ?></textarea>
         </div>
         <div class="col-6 col-md-3 mb-3">
             <label class="form-label" for="dateStart">Date de début</label>
-            <input class="form-control d-block" type="date" id="dateStart" name="dateStart">
+            <input class="form-control d-block" type="date" id="dateStart" name="dateStart" value="<?= $dateStart ?>">
         </div>
         <div class="col-6 col-md-3 mb-3">
             <label class="form-label" for="dateEnd">Date de fin</label>
-            <input class="form-control d-block" type="date" id="dateEnd" name="dateEnd">
+            <input class="form-control d-block" type="date" id="dateEnd" name="dateEnd" value="<?= $dateEnd ?>">
         </div>
         <div class="col-6 col-md-3 mb-3">
             <label class="form-label" for="timeStart">Heure de départ</label>
-            <input class="form-control d-block" type="time" id="timeStart" name="timeStart">
+            <input class="form-control d-block" type="time" id="timeStart" name="timeStart" value="<?= $timeStart ?>">
         </div>
         <div class="col-6 col-md-3 mb-4">
             <label class="form-label" for="timeEnd">Heure de fin</label>
-            <input class="form-control d-block" type="time" id="timeEnd" name="timeEnd">
+            <input class="form-control d-block" type="time" id="timeEnd" name="timeEnd" value="<?= $timeEnd ?>">
         </div>
 
         <div class="d-flex align-items-center flex-wrap gap-3 justify-content-between w-100 mt-3 mb-5 col">

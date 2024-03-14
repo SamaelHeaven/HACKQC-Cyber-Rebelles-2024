@@ -39,10 +39,10 @@ $currentPage ??= CurrentPage::Home;
         <div class="container-fluid">
             <header class="w-100">
                 <div class="d-flex justify-content-between">
-                    <a class="navbar-brand nav-name d-flex gap-2 align-items-center" href="/public/views/home/">
+                    <a class="navbar-brand d-flex gap-2 align-items-center" href="/public/views/home/">
                         <img src="/public/images/fitQuestLogo.png" alt="Logo"
                              class="d-inline-block align-text-top nav-logo">
-                        FitQuest
+                        <h1 class="nav-name fw-light">FitQuest</h1>
                     </a>
                     <div class="navbar-nav d-flex flex-row align-items-center gap-4 ">
                         <a class="nav-link<?= $currentPage == CurrentPage::Home ? " active" : "" ?>" href="/public/views/home/">Accueil</a>

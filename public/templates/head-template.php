@@ -2,9 +2,13 @@
 
 /*
  * string $title: The title of the page
+ * CurrentPage $currentPage: The current page of the site
  */
 
+require_once $_SERVER["DOCUMENT_ROOT"] . "/src/php/models/CurrentPage.php";
+
 $title ??= "";
+$currentPage ??= CurrentPage::Home;
 
 ?>
 <!DOCTYPE html>
@@ -36,13 +40,13 @@ $title ??= "";
             <header class="w-100">
                 <div class="d-flex justify-content-between">
                     <a class="navbar-brand nav-name d-flex gap-2 align-items-center" href="/public/views/home/">
-                        <img src="/public/images/fitQuestLogo.png" alt="Logo" class="d-inline-block align-text-top nav-logo">
+                        <img src="/public/images/fitQuestLogo.png" alt="Logo"
+                             class="d-inline-block align-text-top nav-logo">
                         FitQuest
                     </a>
-                    <div class="d-flex align-items-center gap-4 ">
-                        <a class="nav-link" href="/public/views/home/">Accueil</a>
-                        <a class="nav-link" href="/public/views/about">À propos</a>
-                        <a class="nav-link" href="#">Publier un évènement</a>
+                    <div class="navbar-nav d-flex flex-row align-items-center gap-4 ">
+                        <a class="nav-link<?= $currentPage == CurrentPage::Home ? " active" : "" ?>" href="/public/views/home/">Accueil</a>
+                        <a class="nav-link<?= $currentPage == CurrentPage::About ? " active" : "" ?>" href="/public/views/about/">À propos</a>
                     </div>
                 </div>
             </header>

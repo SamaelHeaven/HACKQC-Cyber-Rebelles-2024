@@ -33,7 +33,7 @@ $title ??= "";
     <nav class="navbar bg-body-tertiary">
         <div class="container-fluid">
             <header>
-                <a class="navbar-brand nav-name d-flex align-items-center" href="#">
+                <a class="navbar-brand nav-name d-flex align-items-center" href="/public/views/home/">
                     <img src="/public/images/fitQuestLogo.png" alt="Logo" class="d-inline-block align-text-top nav-logo">
                     FitQuest
                 </a>

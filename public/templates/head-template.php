@@ -2,6 +2,7 @@
 
 /*
  * string $title: The title of the page
+ * string $mainClasses: The CSS classes to apply to the main element
  * CurrentPage $currentPage: The current page of the site
  */
 
@@ -9,6 +10,7 @@ require_once $_SERVER["DOCUMENT_ROOT"] . "/src/php/models/CurrentPage.php";
 
 $title ??= "";
 $currentPage ??= CurrentPage::Home;
+$mainClasses ??= "";
 
 ?>
 <!DOCTYPE html>
@@ -31,18 +33,19 @@ $currentPage ??= CurrentPage::Home;
             crossorigin=""></script>
     <script src="https://kit.fontawesome.com/74353d55c6.js" crossorigin="anonymous"></script>
     <script type="module" src="/public/javascript/app.js"></script>
+    <link rel="icon" type="image/png" href="/public/images/fitQuestLogo.png">
     <title><?= $title ?></title>
 </head>
 <body>
-<main class="d-flex flex-column justify-content-between min-vh-100">
+<main class="<?= $mainClasses ?>">
     <nav class="navbar bg-body-tertiary">
         <div class="container-fluid">
             <header class="w-100">
                 <div class="d-flex justify-content-between">
-                    <a class="navbar-brand nav-name d-flex gap-2 align-items-center" href="/public/views/home/">
+                    <a class="navbar-brand d-flex gap-2 align-items-center" href="/public/views/home/">
                         <img src="/public/images/fitQuestLogo.png" alt="Logo"
                              class="d-inline-block align-text-top nav-logo">
-                        FitQuest
+                        <h1 class="nav-name fw-light">FitQuest</h1>
                     </a>
                     <div class="navbar-nav d-flex flex-row align-items-center gap-4 ">
                         <a class="nav-link<?= $currentPage == CurrentPage::Home ? " active" : "" ?>" href="/public/views/home/">Accueil</a>

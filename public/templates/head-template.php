@@ -33,11 +33,18 @@ $title ??= "";
 <main class="d-flex flex-column justify-content-between min-vh-100">
     <nav class="navbar bg-body-tertiary">
         <div class="container-fluid">
-            <header>
-                <a class="navbar-brand nav-name d-flex align-items-center" href="/public/views/home/">
-                    <img src="/public/images/fitQuestLogo.png" alt="Logo" class="d-inline-block align-text-top nav-logo">
-                    FitQuest
-                </a>
+            <header class="w-100">
+                <div class="d-flex justify-content-between">
+                    <a class="navbar-brand nav-name d-flex align-items-center" href="/public/views/home/">
+                        <img src="/public/images/fitQuestLogo.png" alt="Logo" class="d-inline-block align-text-top nav-logo">
+                        FitQuest
+                    </a>
+                    <div class="d-flex align-items-center gap-4">
+                        <a href="/public/views/home/">Accueil</a>
+                        <a href="#">À propos</a>
+                        <a href="#">Publier un évènement</a>
+                    </div>
+                </div>
             </header>
         </div>
     </nav>

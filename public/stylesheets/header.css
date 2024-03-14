@@ -1,11 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Angkor&display=swap');
 
 .nav-logo {
-    width: 8rem;
-    height: 8rem;
+    width: 3.5rem;
+    height: auto;
 }
 
 .nav-name {
     font-family: "Angkor", serif;
-    font-size: 3rem;
+    font-size: 2rem;
 }

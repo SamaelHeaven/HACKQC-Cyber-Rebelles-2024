@@ -35,7 +35,7 @@ $title ??= "";
         <div class="container-fluid">
             <header class="w-100">
                 <div class="d-flex justify-content-between">
-                    <a class="navbar-brand nav-name d-flex align-items-center" href="/public/views/home/">
+                    <a class="navbar-brand nav-name d-flex gap-2 align-items-center" href="/public/views/home/">
                         <img src="/public/images/fitQuestLogo.png" alt="Logo" class="d-inline-block align-text-top nav-logo">
                         FitQuest
                     </a>

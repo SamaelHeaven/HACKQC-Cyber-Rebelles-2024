@@ -38,7 +38,7 @@ $mainClasses ??= "";
 </head>
 <body>
 <main class="<?= $mainClasses ?>">
-    <nav class="navbar bg-body-tertiary">
+    <nav class="navbar bg-body-tertiary shadow-lg">
         <div class="container">
             <header class="w-100">
                 <div class="d-flex justify-content-between">

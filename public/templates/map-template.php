@@ -15,7 +15,7 @@ $zoom ??= 12;
 $sportTerrains = DatabaseService::query("SELECT * FROM sport_terrain");
 
 ?>
-<div id="map" class="w-100 flex-grow-1 map"></div>
+<div id="map" class="w-100 flex-grow-1 border"></div>
 <script>
     let map = L.map('map').setView([<?= $latitude ?>, <?= $longitude?>], <?= $zoom ?>);
 
@@ -26,7 +26,7 @@ $sportTerrains = DatabaseService::query("SELECT * FROM sport_terrain");
 
     <?php
     foreach ($sportTerrains as $sportTerrain) {
-        echo "L.marker([" . $sportTerrain['latitude'] . "," . $sportTerrain['longitude'] . "]).addTo(map);;";
+        echo "L.marker([" . $sportTerrain['latitude'] . "," . $sportTerrain['longitude'] . "]).addTo(map);\n";
     }
     ?>
 </script>

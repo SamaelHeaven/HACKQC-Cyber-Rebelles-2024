@@ -5,27 +5,27 @@
             <input class="form-control d-block w-100" type="text" id="company">
         </div>
         <div class="col-md-6 mb-3">
-            <label class="form-label" for="company">Nom de l'événement</label>
-            <input class="form-control d-block w-100" type="text" id="company">
+            <label class="form-label" for="eventName">Nom de l'événement</label>
+            <input class="form-control d-block w-100" type="text" id="eventName">
         </div>
         <div class="mb-3">
-            <label class="form-label" for="company">Description</label>
+            <label class="form-label" for="description">Description</label>
             <textarea class="form-control d-block w-100" name="description" id="description" cols="30" rows="10"></textarea>
         </div>
         <div class="col-6 col-md-3 mb-3">
-            <label class="form-label" for="date">Date de début</label>
+            <label class="form-label" for="dateStart">Date de début</label>
             <input class="form-control d-block" type="date" id="dateStart">
         </div>
         <div class="col-6 col-md-3 mb-3">
-            <label class="form-label" for="date">Date de fin</label>
+            <label class="form-label" for="dateEnd">Date de fin</label>
             <input class="form-control d-block" type="date" id="dateEnd">
         </div>
         <div class="col-6 col-md-3 mb-3">
-            <label class="form-label" for="date">Heure de départ</label>
+            <label class="form-label" for="timeStart">Heure de départ</label>
             <input class="form-control d-block" type="time" id="timeStart">
         </div>
         <div class="col-6 col-md-3 mb-5">
-            <label class="form-label" for="date">Heure de fin</label>
+            <label class="form-label" for="timeEnd">Heure de fin</label>
             <input class="form-control d-block" type="time" id="timeEnd">
         </div>
         <div class="d-flex justify-content-start mb-3">

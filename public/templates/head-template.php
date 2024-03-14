@@ -38,16 +38,21 @@ $mainClasses ??= "";
 </head>
 <body>
 <main class="<?= $mainClasses ?>">
-    <nav class="navbar bg-body-tertiary shadow-lg">
+    <nav class="navbar navbar-expand-md bg-body-tertiary shadow-lg">
         <div class="container">
-            <header class="w-100">
-                <div class="d-flex justify-content-between">
+            <header class="w-100 d-md-flex justify-content-between">
+                <div class=" d-flex justify-content-between">
                     <a class="navbar-brand d-flex gap-2 align-items-center" href="/public/views/home/">
                         <img src="/public/images/fitQuestLogo.png" alt="Logo"
                              class="d-inline-block align-text-top nav-logo">
                         <h1 class="nav-name fw-light mb-0">FitQuest</h1>
                     </a>
-                    <div class="navbar-nav d-flex flex-row align-items-center gap-4 ">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mobileMenu" aria-controls="mobileMenu" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse" id="mobileMenu">
+                    <div class="navbar-nav w-100 d-flex flex-row align-items-center justify-content-end gap-4 ">
                         <a class="nav-link<?= $currentPage == CurrentPage::Home ? " active" : "" ?>" href="/public/views/home/">Accueil</a>
                         <a class="nav-link<?= $currentPage == CurrentPage::About ? " active" : "" ?>" href="/public/views/about/">À propos</a>
                     </div>

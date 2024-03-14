@@ -12,7 +12,7 @@ foreach ($sportTerrains as $terrain) {
 
     $query = "
         INSERT INTO sport_terrain 
-            (json_featuretype, ID, TYPE, REVETEMENT_SOL, MUNICIPALITE, GEOM, DATE_CREATION, DATE_MODIFICATION, LONGITUDE, LATITUDE, json_ogc_wkt_crs, json_geometry) 
+            (json_featuretype, id, type, revetement_sol, municipalite, geom, date_creation, date_creation, longitude, latitude, json_ogc_wkt_crs, json_geometry) 
         VALUES (
             '{$terrain['json_featuretype']}',
             {$terrain['ID']},

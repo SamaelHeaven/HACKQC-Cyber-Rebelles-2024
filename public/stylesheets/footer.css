@@ -1,11 +1,12 @@
-.social-network-logo a:hover {
+.social-networks a:hover {
     color: gray;
 }
 
-.social-network-logo a {
+.social-networks a {
     padding-right: 10px;
     text-decoration: none;
     color: black;
+    font-size: 25px;
 }
 
 .footer-logo {
@@ -16,6 +17,25 @@
 
 .info-footer {
     gap: 8rem;
+}
+
+.footer-text {
+    font-family: "Angkor", serif;
+}
+
+.devpost-icon {
+    filter: grayscale(100%);
+    margin-top: -5px;
+    width: 25px;
+    height: 25px;
+}
+
+.devpost-icon:hover {
+    opacity: 50%;
+}
+
+.copyright-text {
+    font-size: 13px;
 }
 
 @media (max-width: 990px) {

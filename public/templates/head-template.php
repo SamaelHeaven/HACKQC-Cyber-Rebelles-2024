@@ -29,7 +29,7 @@ $title ??= "";
     <title><?= $title ?></title>
 </head>
 <body>
-<main>
+<main class="d-flex flex-column justify-content-between min-vh-100">
     <nav class="navbar bg-body-tertiary">
         <div class="container-fluid">
             <header>

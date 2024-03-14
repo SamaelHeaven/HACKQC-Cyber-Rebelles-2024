@@ -13,7 +13,7 @@
             <div class="pt-4 mx-auto d-flex info-footer">
                 <div>
                     <h2 class="mb-4 fs-6 footer-text">NOUS JOINDRE</h2>
-                    <p><em class="fa-solid fa-envelope me-2"></em>test@exemple.ca</p>
+                    <p><em class="fa-solid fa-envelope me-2"></em>cyberrebellesinfo@gmail.com</p>
                 </div>
                 <div class="social-networks">
                     <h2 class="mb-3 fs-6 footer-text">NOUS SUIVRE</h2>

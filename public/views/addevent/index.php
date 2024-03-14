@@ -4,8 +4,8 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/src/php/models/Template.php");
 require_once $_SERVER["DOCUMENT_ROOT"] . "/src/php/models/CurrentPage.php";
 
 $headTemplate = new Template($_SERVER["DOCUMENT_ROOT"] . "/public/templates/head-template.php");
-$headTemplate->setVariable("title", "FitQuest - About");
-$headTemplate->setVariable("currentPage", CurrentPage::About);
+$headTemplate->setVariable("title", "FitQuest - AddEvent");
+$headTemplate->setVariable("currentPage", CurrentPage::None);
 
 $formTemplate = new Template($_SERVER["DOCUMENT_ROOT"] . "/public/templates/addEventForm-template.php");
 

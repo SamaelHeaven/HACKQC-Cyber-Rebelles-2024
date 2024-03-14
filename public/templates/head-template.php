@@ -31,6 +31,7 @@ $currentPage ??= CurrentPage::Home;
             crossorigin=""></script>
     <script src="https://kit.fontawesome.com/74353d55c6.js" crossorigin="anonymous"></script>
     <script type="module" src="/public/javascript/app.js"></script>
+    <link rel="icon" type="image/png" href="/public/images/fitQuestLogo.png">
     <title><?= $title ?></title>
 </head>
 <body>

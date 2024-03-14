@@ -39,7 +39,7 @@ $mainClasses ??= "";
 <body>
 <main class="<?= $mainClasses ?>">
     <nav class="navbar bg-body-tertiary">
-        <div class="container-fluid">
+        <div class="container">
             <header class="w-100">
                 <div class="d-flex justify-content-between">
                     <a class="navbar-brand d-flex gap-2 align-items-center" href="/public/views/home/">

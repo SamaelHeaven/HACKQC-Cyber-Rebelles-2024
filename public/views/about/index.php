@@ -7,9 +7,13 @@ $headTemplate = new Template($_SERVER["DOCUMENT_ROOT"] . "/public/templates/head
 $headTemplate->setVariable("title", "FitQuest - About");
 $headTemplate->setVariable("currentPage", CurrentPage::About);
 
+$aboutTemplate = new Template($_SERVER["DOCUMENT_ROOT"] . "/public/templates/about-template.php");
+
 $legsTemplate = new Template($_SERVER["DOCUMENT_ROOT"] . "/public/templates/legs-template.php");
 
 ?>
 <?= $headTemplate->render() ?>
+
+<?= $aboutTemplate->render() ?>
 
 <?= $legsTemplate->render() ?>

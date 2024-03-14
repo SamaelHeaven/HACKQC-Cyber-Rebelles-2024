@@ -7,9 +7,11 @@ $headTemplate->setVariable("title", "FitQuest - Home");
 
 $legsTemplate = new Template($_SERVER["DOCUMENT_ROOT"] . "/public/templates/legs-template.php");
 
+$mapTemplate = new Template($_SERVER["DOCUMENT_ROOT"] . "/public/templates/map-template.php");
+
 ?>
 <?= $headTemplate->render() ?>
 
-    <h1>Bonjour le monde!</h1>
+<?= $mapTemplate->render() ?>
 
 <?= $legsTemplate->render() ?>

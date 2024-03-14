@@ -10,7 +10,7 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/src/php/services/DatabaseService.php"
 
 $latitude ??= 0;
 $longitude ??= 0;
-$zoom ??= 12;
+$zoom ??= 13;
 
 $sportTerrains = DatabaseService::query("SELECT * FROM sport_terrain");
 
@@ -25,8 +25,12 @@ $sportTerrains = DatabaseService::query("SELECT * FROM sport_terrain");
     }).addTo(map);
 
     <?php
+
+    $i = 0;
     foreach ($sportTerrains as $sportTerrain) {
-        echo "L.marker([" . $sportTerrain['latitude'] . "," . $sportTerrain['longitude'] . "]).addTo(map);\n";
+        echo "let marker" . $i . " = L.marker([" . $sportTerrain['latitude'] . "," . $sportTerrain['longitude'] . "]).addTo(map);\n";
+        echo "marker" . $i . ".bindPopup('" . $sportTerrain['type'] . "');\n";
+        $i++;
     }
     ?>
 </script>

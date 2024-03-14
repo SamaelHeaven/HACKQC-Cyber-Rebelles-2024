@@ -3,7 +3,7 @@ $errorMessage ??= "";
 
 ?>
 
-<div class="container">
+<div class="wrapper-md">
     <div class="mt-5 mb-4 ">
         <h1>Ajout d'événement</h1>
     </div>

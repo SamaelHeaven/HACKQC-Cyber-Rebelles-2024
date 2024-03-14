@@ -7,7 +7,7 @@ $headTemplate = new Template($_SERVER["DOCUMENT_ROOT"] . "/public/templates/head
 $headTemplate->setVariable("title", "FitQuest - AddEvent");
 $headTemplate->setVariable("currentPage", CurrentPage::None);
 
-$formTemplate = new Template($_SERVER["DOCUMENT_ROOT"] . "/public/templates/addEventForm-template.php");
+$formTemplate = new Template($_SERVER["DOCUMENT_ROOT"] . "/public/templates/add-event-form-template.php");
 
 $legsTemplate = new Template($_SERVER["DOCUMENT_ROOT"] . "/public/templates/legs-template.php");
 

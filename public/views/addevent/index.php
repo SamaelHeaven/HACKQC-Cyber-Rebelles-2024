@@ -2,6 +2,7 @@
 
 require_once($_SERVER["DOCUMENT_ROOT"] . "/src/php/models/Template.php");
 require_once $_SERVER["DOCUMENT_ROOT"] . "/src/php/models/CurrentPage.php";
+require_once ($_SERVER["DOCUMENT_ROOT"] . "/src/php/services/DatabaseService.php");
 
 $headTemplate = new Template($_SERVER["DOCUMENT_ROOT"] . "/public/templates/head-template.php");
 $headTemplate->setVariable("title", "FitQuest - AddEvent");
@@ -11,6 +12,7 @@ $formTemplate = new Template($_SERVER["DOCUMENT_ROOT"] . "/public/templates/add-
 
 $legsTemplate = new Template($_SERVER["DOCUMENT_ROOT"] . "/public/templates/legs-template.php");
 
+$terrainId = null;
 $organizer = "";
 $eventName = "";
 $description = "";
@@ -20,6 +22,16 @@ $timeStart = "";
 $timeEnd = "";
 $errorMessage = "";
 
+if (isset($_POST['terrainId'])){
+    $terrainId = $_POST['terrainId'];
+} else if (isset($_GET['terrainId'])){
+    $terrainId = $_GET['terrainId'];
+} else {
+    header('Location: ' . "/public/views/home");
+}
+
+$formTemplate->setVariable('terrainId', $terrainId);
+
 if (isset($_POST['organizer']) &&
     isset($_POST['eventName']) &&
     isset($_POST['description']) &&
@@ -28,13 +40,13 @@ if (isset($_POST['organizer']) &&
     isset($_POST['timeStart']) &&
     isset($_POST['timeEnd'])){
 
-    $organizer = $_POST['organizer'];
-    $eventName = $_POST['eventName'];
-    $description = $_POST['description'];
-    $dateStart = $_POST['dateStart'];
-    $dateEnd = $_POST['dateEnd'];
-    $timeStart = $_POST['timeStart'];
-    $timeEnd = $_POST['timeEnd'];
+    $organizer = DatabaseService::escapeString($_POST['organizer']);
+    $eventName = DatabaseService::escapeString($_POST['eventName']);
+    $description = DatabaseService::escapeString($_POST['description']);
+    $dateStart = DatabaseService::escapeString($_POST['dateStart']);
+    $dateEnd = DatabaseService::escapeString($_POST['dateEnd']);
+    $timeStart = DatabaseService::escapeString($_POST['timeStart']);
+    $timeEnd = DatabaseService::escapeString($_POST['timeEnd']);
 
     if (!($organizer == "" ||
     $eventName == "" ||
@@ -44,15 +56,22 @@ if (isset($_POST['organizer']) &&
     $timeStart == "" ||
     $timeEnd == "")) {
 
-        if ( $timeStart < $timeEnd && $dateStart <= $dateEnd){
-            header('Location: ' . "/public/views/home");
+        if ($dateStart <= $dateEnd){
+            if ($dateStart == $dateEnd && $timeStart < $timeEnd){
+                DatabaseService::query("INSERT INTO event(sport_terrain_id, organizer, eventname, description, datestart, dateend, timestart, timeend) values('$terrainId','$organizer','$eventName','$description','$dateStart','$dateEnd','$timeStart','$timeEnd') ");
+                header('Location: ' . "/public/views/home");
+            } else {
+                $errorMessage = "L'heure de fin se situe après celle de début";
+            }
         } else {
-            $errorMessage = "la date ou l'heure de fin ne peut pas etre inferieure a celle du debut ";
+            $errorMessage = "La date de fin ne peut pas être avant la date de début ";
         }
 
     } else {
         $errorMessage = "L'un des champs n'a pas été rempli";
     }
+
+    $formTemplate->setVariable("errorMessage",$errorMessage);
 }
 
 ?>

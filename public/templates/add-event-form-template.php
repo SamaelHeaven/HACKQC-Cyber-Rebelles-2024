@@ -1,10 +1,10 @@
 <?php
 $errorMessage ??= "";
-
+$terrainId ??= "";
 ?>
 
 <div class="wrapper-md">
-    <div class="mt-5 mb-4 ">
+    <div class="d-flex justify-content-center mt-5 mb-4 ">
         <h1>Ajout d'événement</h1>
     </div>
 
@@ -37,18 +37,25 @@ $errorMessage ??= "";
             <label class="form-label" for="timeEnd">Heure de fin</label>
             <input class="form-control d-block" type="time" id="timeEnd" name="timeEnd">
         </div>
-        <div class="d-flex justify-content-start mb-3">
-            <input class="btn btn-primary" type="submit" value="Ajouter l'événement">
-        </div>
-        <?php
-        if ($errorMessage != ""){
-            ?>
-            <div class="d-flex justify-content-center mt-3">
-                <p><?= $errorMessage ?></p>
-            </div>
 
+        <div class="d-flex align-items-center flex-wrap gap-3 justify-content-between w-100 mt-3 mb-5 col">
+
+            <div>
             <?php
-        }
-        ?>
+            if ($errorMessage != ""){
+                ?>
+                <div class="alert alert-danger mb-0" role="alert">
+                    <p class="text-center m-0"><?= $errorMessage ?></p>
+                </div>
+                <?php
+            }
+            ?>
+            </div>
+            <div>
+                <input class="btn btn-primary" type="submit" value="Ajouter l'événement">
+            </div>
+        </div>
+        <input type="hidden" value="<?=$terrainId ?>" name="terrainId">
+
     </div>
 </div>

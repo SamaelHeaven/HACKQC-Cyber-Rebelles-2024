@@ -18,7 +18,7 @@ $legsTemplate = new Template($_SERVER["DOCUMENT_ROOT"] . "/public/templates/legs
     <h1>Ajout d'événement</h1>
 </div>
 
-<form class="m-4" action="Post">
+<form class="m-4" action="" method="post">
     <?= $formTemplate->render() ?>
 </form>
 

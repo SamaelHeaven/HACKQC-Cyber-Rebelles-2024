@@ -34,7 +34,7 @@ $title ??= "";
         <div class="container-fluid">
             <header>
                 <a class="navbar-brand" href="#">
-                    <img src="" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+                    <img src="/public/images/fitQuestLogo.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
                     FitQuest
                 </a>
             </header>

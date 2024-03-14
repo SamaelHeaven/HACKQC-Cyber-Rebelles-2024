@@ -15,7 +15,7 @@ $zoom ??= 13;
 $sportTerrains = DatabaseService::query("SELECT * FROM sport_terrain");
 
 ?>
-<div id="map" class="w-100 flex-grow-1 border"></div>
+<div id="map" class="w-100 flex-grow-1 border border-5"></div>
 <script>
     let map = L.map('map').setView([<?= $latitude ?>, <?= $longitude?>], <?= $zoom ?>);
 

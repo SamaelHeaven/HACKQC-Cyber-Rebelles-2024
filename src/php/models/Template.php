@@ -2,28 +2,28 @@
 
 final class Template
 {
-    private string $_file_path;
-    private array $_data;
+    private string $filePath;
+    private array $data;
 
-    public function __construct(string $file_path)
+    public function __construct(string $filePath)
     {
-        $this->_file_path = $file_path;
-        $this->_data = [];
+        $this->filePath = $filePath;
+        $this->data = [];
     }
 
-    public function set_variable(string $key, mixed $value): void
+    public function setVariable(string $key, mixed $value): void
     {
-        $this->_data[$key] = $value;
+        $this->data[$key] = $value;
     }
 
     public function render(): string|null
     {
-        if (!file_exists($this->_file_path)) {
+        if (!file_exists($this->filePath)) {
             return null;
         }
-        extract($this->_data);
+        extract($this->data);
         ob_start();
-        require_once $this->_file_path;
+        require_once $this->filePath;
         return ob_get_clean();
     }
 }

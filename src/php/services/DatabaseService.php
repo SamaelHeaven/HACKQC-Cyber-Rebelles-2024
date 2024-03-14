@@ -5,7 +5,7 @@ final class DatabaseService
 
     public static function query(string $query): array|null
     {
-        $connection = pg_connect(self::_get_connection_string());
+        $connection = pg_connect(self::get_connection_string());
         if (!$connection) {
             return null;
         }
@@ -21,15 +21,15 @@ final class DatabaseService
         return $data;
     }
 
-    public static function escape_string($string): string
+    public static function escapeString($string): string
     {
-        $connection = pg_connect(self::_get_connection_string());
+        $connection = pg_connect(self::get_connection_string());
         $result = pg_escape_string($connection, $string);
         pg_close($connection);
         return $result;
     }
 
-    private static function _get_connection_string(): string
+    private static function get_connection_string(): string
     {
         $host = getenv("DB_HOSTNAME");
         $port = "5432";

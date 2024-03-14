@@ -9,12 +9,19 @@
 }
 
 .footer-logo {
+    margin-left: 1rem;
     width: 5rem;
     height: 5rem;
 }
 
 .info-footer {
     gap: 8rem;
+}
+
+@media (max-width: 990px) {
+    .info-footer {
+        gap: 6rem;
+    }
 }
 
 @media (max-width: 770px) {

@@ -1,15 +1,18 @@
-.redsocial-logo a:hover {
+.social-network-logo a:hover {
     color: gray;
 }
 
-.redsocial-logo a {
+.social-network-logo a {
     padding-right: 10px;
     text-decoration: none;
     color: black;
 }
 
+.footer-logos {
+    margin: auto;
+}
+
 .footer-logo {
-    margin-left: 1rem;
     width: 5rem;
     height: 5rem;
 }
@@ -27,5 +30,9 @@
 @media (max-width: 770px) {
     .info-footer {
         gap: 2rem;
+    }
+
+    .footer-content {
+        flex-direction: column;
     }
 }

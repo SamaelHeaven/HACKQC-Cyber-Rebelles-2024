@@ -9,7 +9,7 @@
 require_once $_SERVER["DOCUMENT_ROOT"] . "/src/php/models/CurrentPage.php";
 
 $title ??= "";
-$currentPage ??= CurrentPage::Home;
+$currentPage ??= CurrentPage::None;
 $mainClasses ??= "";
 
 ?>
@@ -47,14 +47,17 @@ $mainClasses ??= "";
                              class="d-inline-block align-text-top nav-logo">
                         <h1 class="nav-name fw-light mb-0">FitQuest</h1>
                     </a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mobileMenu" aria-controls="mobileMenu" aria-expanded="false" aria-label="Toggle navigation">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mobileMenu"
+                            aria-controls="mobileMenu" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                 </div>
                 <div class="collapse navbar-collapse" id="mobileMenu">
                     <div class="navbar-nav w-100 d-flex flex-row align-items-center justify-content-end gap-4 ">
-                        <a class="nav-link<?= $currentPage == CurrentPage::Home ? " active" : "" ?>" href="/public/views/home/">Accueil</a>
-                        <a class="nav-link<?= $currentPage == CurrentPage::About ? " active" : "" ?>" href="/public/views/about/">À propos</a>
+                        <a class="nav-link<?= $currentPage == CurrentPage::Home ? " active" : "" ?>"
+                           href="/public/views/home/">Accueil</a>
+                        <a class="nav-link<?= $currentPage == CurrentPage::About ? " active" : "" ?>"
+                           href="/public/views/about/">À propos</a>
                     </div>
                 </div>
             </header>

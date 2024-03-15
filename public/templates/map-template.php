@@ -44,7 +44,7 @@ $sportTerrains = DatabaseService::query("SELECT * FROM sport_terrain");
     foreach ($sportTerrains as $sportTerrain) {
         echo "let marker" . $i . " = L.marker([" . $sportTerrain['latitude'] . "," . $sportTerrain['longitude'] . "]).addTo(map);\n";
         echo "marker" . $i . ".bindPopup('" . $sportTerrain['type'] . "');\n";
-        echo "marker". $i. ".on('click', function (e) { WorldMap.onMarkerClick(" . $sportTerrain['id'] . ") });\n";
+        echo "marker" . $i . ".on('click', function (e) { WorldMap.onMarkerClick(" . $sportTerrain['id'] . ") });\n";
         $i++;
     }
     ?>

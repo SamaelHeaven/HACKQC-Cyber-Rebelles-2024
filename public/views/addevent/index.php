@@ -2,11 +2,10 @@
 
 require_once($_SERVER["DOCUMENT_ROOT"] . "/src/php/models/Template.php");
 require_once $_SERVER["DOCUMENT_ROOT"] . "/src/php/models/CurrentPage.php";
-require_once ($_SERVER["DOCUMENT_ROOT"] . "/src/php/services/DatabaseService.php");
+require_once($_SERVER["DOCUMENT_ROOT"] . "/src/php/services/DatabaseService.php");
 
 $headTemplate = new Template($_SERVER["DOCUMENT_ROOT"] . "/public/templates/head-template.php");
-$headTemplate->setVariable("title", "FitQuest - AddEvent");
-$headTemplate->setVariable("currentPage", CurrentPage::None);
+$headTemplate->setVariable("title", "FitQuest - Ajout d'événement");
 
 $formTemplate = new Template($_SERVER["DOCUMENT_ROOT"] . "/public/templates/add-event-form-template.php");
 
@@ -23,15 +22,15 @@ $timeEnd = "";
 $errorMessage = "";
 
 $receivedElelemt = null;
-if (isset($_POST['terrainId'])){
+if (isset($_POST['terrainId'])) {
     $terrainId = $_POST['terrainId'];
-} else if (isset($_GET['terrainId'])){
+} else if (isset($_GET['terrainId'])) {
     $terrainId = $_GET['terrainId'];
 } else {
     header('Location: ' . "/public/views/home");
 }
 $receivedElelemt = DatabaseService::query("SELECT * FROM  sport_terrain where id = $terrainId");
-if ($receivedElelemt == []){
+if ($receivedElelemt == []) {
     header('Location: ' . "/public/views/home");
 }
 
@@ -43,7 +42,7 @@ if (isset($_POST['organizer']) &&
     isset($_POST['dateStart']) &&
     isset($_POST['dateEnd']) &&
     isset($_POST['timeStart']) &&
-    isset($_POST['timeEnd'])){
+    isset($_POST['timeEnd'])) {
 
     $organizer = DatabaseService::escapeString($_POST['organizer']);
     $eventName = DatabaseService::escapeString($_POST['eventName']);

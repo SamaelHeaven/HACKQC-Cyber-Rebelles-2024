@@ -2,7 +2,7 @@
 
 require_once($_SERVER["DOCUMENT_ROOT"] . "/src/php/services/DatabaseService.php");
 
-$jsonData = file_get_contents($_SERVER["DOCUMENT_ROOT"] .  "/datasets/terrain_sportif.json");
+$jsonData = file_get_contents($_SERVER["DOCUMENT_ROOT"] . "/datasets/terrain_sportif.json");
 $sportTerrains = json_decode($jsonData, true);
 
 foreach ($sportTerrains as $terrain) {

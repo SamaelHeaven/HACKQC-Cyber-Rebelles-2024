@@ -1,6 +1,7 @@
 <?php
 
-enum CurrentPage {
+enum CurrentPage
+{
     case Home;
     case About;
     case None;

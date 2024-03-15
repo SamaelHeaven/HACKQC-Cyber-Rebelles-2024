@@ -47,7 +47,7 @@ export class Template {
                     </tr>
                     <tr>
                         <th scope="row">Date de modification</th>
-                        <td>${sportTerrain.date_modification}</td>
+                        <td>${sportTerrain.date_modification.toString().substring(0, sportTerrain.date_modification.toString().length - 3)}</td>
                     </tr>
                 </tbody>
             </table>

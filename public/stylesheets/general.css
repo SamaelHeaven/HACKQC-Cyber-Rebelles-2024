@@ -57,3 +57,7 @@ h6 {
     background-size: contain;
     pointer-events: none;
 }
+
+.home-body {
+    min-height: 100svh;
+}

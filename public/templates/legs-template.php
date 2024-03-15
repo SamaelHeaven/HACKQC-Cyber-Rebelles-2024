@@ -4,7 +4,7 @@
         <div class="d-flex footer-content">
             <div class="d-flex flex-column">
                 <div class="pt-2 footer-logos mx-auto">
-                    <a href="/public/views/home/index.php"><img src="/public/images/fitQuestLogo.png" alt="logo" class="footer-logo"></a>
+                    <a href="/public/views/home/index.php"><img src="/public/images/fit-quest-logo.png" alt="logo" class="footer-logo"></a>
                     <a href="https://devpost.com/software/hackqc-2024" target="_blank"><img src="/public/images/logo_equipe.webp" alt="logo" class="footer-logo"></a>
                 </div>
                 <div class="pt-3 mx-auto copyright-text">© Cyber-Rebelles, 2024</div>

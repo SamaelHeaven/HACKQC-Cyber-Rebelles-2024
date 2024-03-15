@@ -18,7 +18,7 @@
         <img src="/public/images/locations-sport.png" alt="locations-sport" class="my-2 mx-auto">
     </div>
 
-    <p>Et ce qui est le plus formidable, c’est que n’importe qui aura l’occasion d’organisé une activité sportive Nous croyons alors fortement que l’accès à l’information concernant les activités sportives disponibles.</p>
+    <p class="pb-3">Et ce qui est le plus formidable, c’est que n’importe qui aura l’occasion d’organisé une activité sportive Nous croyons alors fortement que l’accès à l’information concernant les activités sportives disponibles.</p>
 </section>
 
 

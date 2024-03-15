@@ -36,3 +36,24 @@ h6 {
     height: 200px;
     box-shadow: 10px 10px 5px #ccc;
 }
+
+.map-panel {
+    position: relative;
+}
+
+.map-panel:before {
+    content: ' ';
+    display: block;
+    position: absolute;
+    inset: 0;
+    width: 75%;
+    height: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0.2;
+    background-image: url("/public/images/fit-quest-logo.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    pointer-events: none;
+}

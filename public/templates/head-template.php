@@ -33,7 +33,7 @@ $mainClasses ??= "";
             crossorigin=""></script>
     <script src="https://kit.fontawesome.com/74353d55c6.js" crossorigin="anonymous"></script>
     <script type="module" src="/public/javascript/app.js"></script>
-    <link rel="icon" type="image/png" href="/public/images/fitQuestLogo.png">
+    <link rel="icon" type="image/png" href="/public/images/fit-quest-logo.png">
     <title><?= $title ?></title>
 </head>
 <body>
@@ -43,7 +43,7 @@ $mainClasses ??= "";
             <header class="w-100 d-md-flex justify-content-between">
                 <div class=" d-flex justify-content-between">
                     <a class="navbar-brand d-flex gap-2 align-items-center" href="/public/views/home/">
-                        <img src="/public/images/fitQuestLogo.png" alt="Logo"
+                        <img src="/public/images/fit-quest-logo.png" alt="Logo"
                              class="d-inline-block align-text-top nav-logo">
                         <h1 class="nav-name fw-light mb-0">FitQuest</h1>
                     </a>

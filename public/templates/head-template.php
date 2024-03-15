@@ -39,16 +39,19 @@ $currentPage ??= CurrentPage::None;
     <nav class="navbar navbar-expand-md bg-body-tertiary shadow-lg">
         <div class="container">
             <header class="w-100 d-md-flex justify-content-between">
-                <div class=" d-flex justify-content-between">
+                <div class="d-flex justify-content-between gap-2 flex-wrap">
                     <a class="navbar-brand d-flex gap-2 align-items-center" href="/public/views/home/">
                         <img src="/public/images/fit-quest-logo.png" alt="Logo"
                              class="d-inline-block align-text-top nav-logo">
                         <h1 class="nav-name fw-light mb-0">FitQuest</h1>
                     </a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mobileMenu"
-                            aria-controls="mobileMenu" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
+                    <div class="d-flex justify-content-center align-items-center">
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#mobileMenu"
+                                aria-controls="mobileMenu" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                    </div>
                 </div>
                 <div class="collapse navbar-collapse" id="mobileMenu">
                     <div class="navbar-nav w-100 d-flex flex-row align-items-center justify-content-end gap-4 ">

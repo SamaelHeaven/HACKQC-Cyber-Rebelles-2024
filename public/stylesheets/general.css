@@ -62,7 +62,19 @@ h6 {
     min-height: 100svh;
 }
 
-.onTop {
+.on-top {
     position: relative;
     z-index: 1;
+}
+
+.event-button {
+    position: relative;
+    transition: ease-in-out 0.1s;
+    bottom: 0;
+    box-shadow: none;
+}
+
+.event-button:hover {
+    bottom: 2px;
+    box-shadow: 0 5px 2px 0 rgba(0, 0, 0, 0.5);
 }

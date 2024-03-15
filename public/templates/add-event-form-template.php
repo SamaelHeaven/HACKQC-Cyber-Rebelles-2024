@@ -105,7 +105,7 @@ $invalidCss = "is-invalid";
             } ?>" type="time" id="timeEnd" name="timeEnd" value="<?= $timeEnd ?>">
         </div>
 
-        <div class="d-flex align-items-center flex-wrap gap-3 justify-content-between w-100 mt-3 mb-3 col">
+        <div class="d-flex align-items-center flex-wrap gap-3 justify-content-between w-100 mt-1 mb-3 col">
 
             <div>
                 <?php

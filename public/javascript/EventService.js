@@ -7,10 +7,10 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-export class SportTerrainService {
-    static getById(id) {
+export class EventService {
+    static getListBySportTerrainId(id) {
         return __awaiter(this, void 0, void 0, function* () {
-            let response = yield fetch("/api/sport-terrain-api.php?id=" + id);
+            let response = yield fetch("/api/event-api.php?terrainId=" + id);
             return yield response.json();
         });
     }

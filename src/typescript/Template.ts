@@ -1,4 +1,5 @@
 import {SportTerrain} from "./SportTerrain.js";
+import {Event} from "./Event.js";
 
 export class Template {
     public static getMapPanel(sportTerrain: SportTerrain): string {
@@ -55,5 +56,27 @@ export class Template {
                 </tbody>
             </table>
         `;
+    }
+
+    public static getEventsPanel(sportTerrain: SportTerrain, events: Event[]): string {
+        let result = "<div class='mb-3'>";
+        result += `<a class="btn btn-secondary w-100 fs-4 fw-bold opac" href="/public/views/addevent/?terrainId=${sportTerrain.id}"><i class="fa-solid fa-plus"></i> Ajouter un événement</a>`;
+        for (let event of events) {
+            result += `
+                <a class="btn btn-outline-primary mt-3 w-100 fw-bold d-flex justify-content-between align-items-center gap-3 flex-wrap" href="/public/views/event/?id=${event.id}">
+                    <span>${event.organizer} - ${event.eventname}</span>
+                    <span>${event.datestart}</span>
+                </a>
+            `;
+        }
+        if (events.length === 0) {
+            result += `
+                <div class="alert alert-info mt-3" role="alert">
+                    Aucun événements n'est associé à ce terrain
+                </div>
+            `
+        }
+        result += "</div>";
+        return result;
     }
 }

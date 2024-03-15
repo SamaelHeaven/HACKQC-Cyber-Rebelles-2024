@@ -1,5 +1,6 @@
 import {SportTerrainService} from "./SportTerrainService.js";
 import {Template} from "./Template.js";
+import {EventService} from "./EventService.js";
 
 document.body.addEventListener('click', (event) => {
     let target = event.target as HTMLElement;
@@ -16,7 +17,11 @@ document.body.addEventListener('click', (event) => {
                 mapPanelSection.innerHTML = Template.getInfoPanel(sportTerrain);
             }
             if (navLink.dataset['navLink'] === "events") {
-                mapPanelSection.innerHTML = "";
+                EventService.getListBySportTerrainId(terrainId).then(events => {
+                    console.log(terrainId)
+                    console.log(events)
+                    mapPanelSection.innerHTML = Template.getEventsPanel(sportTerrain, events);
+                })
             }
         });
     }

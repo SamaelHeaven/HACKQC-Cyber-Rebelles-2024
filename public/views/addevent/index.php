@@ -22,11 +22,16 @@ $timeStart = "";
 $timeEnd = "";
 $errorMessage = "";
 
+$receivedElelemt = null;
 if (isset($_POST['terrainId'])){
     $terrainId = $_POST['terrainId'];
 } else if (isset($_GET['terrainId'])){
     $terrainId = $_GET['terrainId'];
 } else {
+    header('Location: ' . "/public/views/home");
+}
+$receivedElelemt = DatabaseService::query("SELECT * FROM  sport_terrain where id = $terrainId");
+if ($receivedElelemt == []){
     header('Location: ' . "/public/views/home");
 }
 
@@ -51,32 +56,14 @@ if (isset($_POST['organizer']) &&
     $formTemplate->setVariable('organizer', $organizer);
     $formTemplate->setVariable('eventName', $eventName);
     $formTemplate->setVariable('description', $description);
-    if (!($organizer == "" ||
-    $eventName == "" ||
-    $description == "" ||
-    $dateStart == "" ||
-    $dateEnd == "" ||
-    $timeStart == "" ||
-    $timeEnd == "")) {
+    $formTemplate->setVariable('dateStart', $dateStart);
+    $formTemplate->setVariable('dateEnd', $dateEnd);
+    $formTemplate->setVariable('timeStart', $timeStart);
+    $formTemplate->setVariable('timeEnd', $timeEnd);
 
-        if ($dateStart <= $dateEnd){
-            $formTemplate->setVariable('dateStart', $dateStart);
-            $formTemplate->setVariable('dateEnd', $dateEnd);
-            if (!($dateStart == $dateEnd && $timeStart >= $timeEnd)){
-                DatabaseService::query("INSERT INTO event(sport_terrain_id, organizer, eventname, description, datestart, dateend, timestart, timeend) values('$terrainId','$organizer','$eventName','$description','$dateStart','$dateEnd','$timeStart','$timeEnd') ");
-                header('Location: ' . "/public/views/home");
-            } else {
-                $errorMessage = "L'événement ne peut pas se terminer avant d'avoir commencé ";
-            }
-        } else {
-            $errorMessage = "La date de fin ne peut pas être avant la date de début ";
-        }
 
-    } else {
-        $errorMessage = "L'un des champs n'a pas été rempli";
-    }
-
-    $formTemplate->setVariable("errorMessage",$errorMessage);
+} else {
+    $formTemplate->setVariable('detectError', false);
 }
 
 ?>

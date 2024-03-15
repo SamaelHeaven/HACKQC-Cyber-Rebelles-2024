@@ -13,14 +13,14 @@ $insideMain ??= true;
 <footer class="bg-body-tertiary shadow-lg">
     <div class="container py-3">
         <div class="d-flex footer-content">
-            <div class="d-flex flex-column">
-                <div class="pt-2 footer-logos mx-auto">
+            <div class="d-flex flex-column align-items-center">
+                <div class="pt-2 footer-logos d-flex">
                     <a href="/public/views/home/index.php"><img src="/public/images/fit-quest-logo.png" alt="FitQuest"
                                                                 class="footer-logo"></a>
                     <a href="https://devpost.com/software/hackqc-2024" target="_blank"><img
-                                src="/public/images/cyber-rebelles-logo.png" alt="Cyber-Rebelles" class="footer-logo rounded-circle border border-2 border-black shadow"></a>
+                                src="/public/images/cyber-rebelles-logo.png" alt="Cyber-Rebelles" class="footer-logo"></a>
                 </div>
-                <div class="pt-3 mx-auto copyright-text">© Cyber-Rebelles 2024</div>
+                <div class="pt-3 copyright-text">© Cyber-Rebelles 2024</div>
             </div>
 
             <div class="pt-4 mx-auto d-flex flex-wrap info-footer">

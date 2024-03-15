@@ -42,7 +42,7 @@ $legsTemplate = new Template($_SERVER["DOCUMENT_ROOT"] . "/public/templates/legs
             <div class="pb-2">
                 <span class="fw-bold">Date:</span> Du <?= $event['start_date'] ?>
                 : <?= substr($event['start_time'], 0, 5) ?>
-                <span class="fw-bold">à</span> <?= $event['end_date'] ?> : <?= substr($event['end_time'], 0, 5) ?>
+                à <?= $event['end_date'] ?> : <?= substr($event['end_time'], 0, 5) ?>
             </div>
             <p>
                 <span class="fw-bold">Description:</span> <?= $event['description'] ?>

@@ -38,12 +38,19 @@ $sportTerrains = DatabaseService::query("SELECT * FROM sport_terrain");
         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(map);
 
+    let markers = L.layerGroup().addTo(map);
+    let numberMarkers = L.layerGroup().addTo(map);
+
     <?php
 
     $i = 0;
     foreach ($sportTerrains as $sportTerrain) {
-        echo "let marker" . $i . " = L.marker([" . $sportTerrain['latitude'] . "," . $sportTerrain['longitude'] . "]).addTo(map);\n";
+        $events = DatabaseService::query("SELECT * FROM event WHERE sport_terrain_id = ". $sportTerrain['id']);
+        echo "let marker" . $i . " = L.marker([" . $sportTerrain['latitude'] . "," . $sportTerrain['longitude'] . "]).addTo(markers);\n";
         echo "marker" . $i . ".bindPopup('" . $sportTerrain['type'] . "');\n";
+        if (count($events) > 0) {
+            echo "L.marker([" . $sportTerrain['latitude'] . "," . $sportTerrain['longitude'] . "], {icon: L.divIcon({className: 'custom-icon', html: '<div class=\"bg-danger text-center rounded-circle text-white border border-black border-2 fw-bold\">". count($events) ."</div>', iconAnchor: [-5, 50], iconSize: [20, 20]})}).addTo(numberMarkers);\n";
+        }
         echo "marker" . $i . ".on('click', function (e) { WorldMap.onMarkerClick(" . $sportTerrain['id'] . ") });\n";
         $i++;
     }

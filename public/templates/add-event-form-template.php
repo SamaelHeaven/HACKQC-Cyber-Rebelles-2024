@@ -69,10 +69,10 @@ $invalidCss = "is-invalid";
             } ?>  " type="text" id="organizer" name="organizer" value="<?= $organizer ?>">
         </div>
         <div class="col-md-6 mb-3">
-            <label class="form-label" for="event_name">Nom de l'événement</label>
+            <label class="form-label" for="eventName">Nom de l'événement</label>
             <input class="form-control d-block w-100 <?php if ($errorMessage != "") {
                 echo $eventName != "" ? $validCss : $invalidCss;
-            } ?>" type="text" id="event_name" name="event_name" value="<?= $eventName ?>">
+            } ?>" type="text" id="eventName" name="eventName" value="<?= $eventName ?>">
         </div>
         <div class="mb-3">
             <label class="form-label" for="description">Description</label>
@@ -81,28 +81,28 @@ $invalidCss = "is-invalid";
             } ?>" name="description" id="description" cols="30" rows="10"><?= $description ?></textarea>
         </div>
         <div class="col-6 col-md-3 mb-3">
-            <label class="form-label" for="start_date">Date de début</label>
+            <label class="form-label" for="startDate">Date de début</label>
             <input class="form-control d-block <?php if ($errorMessage != "") {
                 echo $validDate ? $validCss : $invalidCss;
-            } ?>" type="date" id="start_date" name="start_date" value="<?= $startDate ?>">
+            } ?>" type="date" id="startDate" name="startDate" value="<?= $startDate ?>">
         </div>
         <div class="col-6 col-md-3 mb-3">
-            <label class="form-label" for="end_date">Date de fin</label>
+            <label class="form-label" for="endDate">Date de fin</label>
             <input class="form-control d-block <?php if ($errorMessage != "") {
                 echo $validDate ? $validCss : $invalidCss;
-            } ?>" type="date" id="end_date" name="end_date" value="<?= $endDate ?>">
+            } ?>" type="date" id="endDate" name="endDate" value="<?= $endDate ?>">
         </div>
         <div class="col-6 col-md-3 mb-3">
-            <label class="form-label" for="start_time">Heure de départ</label>
+            <label class="form-label" for="startTime">Heure de départ</label>
             <input class="form-control d-block <?php if ($errorMessage != "") {
                 echo $validTime ? $validCss : $invalidCss;
-            } ?>" type="time" id="start_time" name="start_time" value="<?= $startTime ?>">
+            } ?>" type="time" id="startTime" name="startTime" value="<?= $startTime ?>">
         </div>
         <div class="col-6 col-md-3 mb-4">
-            <label class="form-label" for="end_time">Heure de fin</label>
+            <label class="form-label" for="endTime">Heure de fin</label>
             <input class="form-control d-block <?php if ($errorMessage != "") {
                 echo $validTime ? $validCss : $invalidCss;
-            } ?>" type="time" id="end_time" name="end_time" value="<?= $endTime ?>">
+            } ?>" type="time" id="endTime" name="endTime" value="<?= $endTime ?>">
         </div>
 
         <div class="d-flex align-items-center flex-wrap gap-3 justify-content-between w-100 mt-1 mb-3 col">

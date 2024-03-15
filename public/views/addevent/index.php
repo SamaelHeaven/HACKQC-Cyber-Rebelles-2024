@@ -37,28 +37,28 @@ if ($receivedElement == []) {
 $formTemplate->setVariable('terrainId', $terrainId);
 
 if (isset($_POST['organizer']) &&
-    isset($_POST['event_name']) &&
+    isset($_POST['eventName']) &&
     isset($_POST['description']) &&
-    isset($_POST['start_date']) &&
-    isset($_POST['end_date']) &&
-    isset($_POST['start_time']) &&
-    isset($_POST['end_time'])) {
+    isset($_POST['startDate']) &&
+    isset($_POST['endDate']) &&
+    isset($_POST['startTime']) &&
+    isset($_POST['endTime'])) {
 
     $organizer = DatabaseService::escapeString($_POST['organizer']);
-    $eventName = DatabaseService::escapeString($_POST['event_name']);
+    $eventName = DatabaseService::escapeString($_POST['eventName']);
     $description = DatabaseService::escapeString($_POST['description']);
-    $startDate = DatabaseService::escapeString($_POST['start_date']);
-    $endDate = DatabaseService::escapeString($_POST['end_date']);
-    $startTime = DatabaseService::escapeString($_POST['start_time']);
-    $endTime = DatabaseService::escapeString($_POST['end_time']);
+    $startDate = DatabaseService::escapeString($_POST['startDate']);
+    $endDate = DatabaseService::escapeString($_POST['endDate']);
+    $startTime = DatabaseService::escapeString($_POST['startTime']);
+    $endTime = DatabaseService::escapeString($_POST['endTime']);
 
     $formTemplate->setVariable('organizer', $organizer);
-    $formTemplate->setVariable('event_name', $eventName);
+    $formTemplate->setVariable('eventName', $eventName);
     $formTemplate->setVariable('description', $description);
-    $formTemplate->setVariable('start_date', $startDate);
-    $formTemplate->setVariable('end_date', $endDate);
-    $formTemplate->setVariable('start_time', $startTime);
-    $formTemplate->setVariable('end_time', $endTime);
+    $formTemplate->setVariable('startDate', $startDate);
+    $formTemplate->setVariable('endDate', $endDate);
+    $formTemplate->setVariable('startTime', $startTime);
+    $formTemplate->setVariable('endTime', $endTime);
 
 
 } else {

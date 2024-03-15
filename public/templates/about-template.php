@@ -13,7 +13,7 @@
     </p>
 
     <div class="d-lg-flex gap-3">
-        <img src="/public/images/joyful-race.jpg" alt="joyful-race" class="mx-auto">
+        <img src="/public/images/training.jpg" alt="training" class="mx-auto">
         <p class="ms-auto mt-auto mb-auto">
             Nous pensons fortement que cela pourrait intéresser une grande partie de la
             population et ainsi inciter ceux qui veulent faire davantage de sport dans leur municipalité à se lancer et

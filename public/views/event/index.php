@@ -33,16 +33,16 @@ $legsTemplate = new Template($_SERVER["DOCUMENT_ROOT"] . "/public/templates/legs
     <div>
         <div class="wrapper-md my-4 border border-2 bg-light rounded p-3">
             <h2 class="text-center">
-                <?= $event['eventname'] ?>
+                <?= $event['event_name'] ?>
             </h2>
             <hr>
             <div class="pb-2">
                 <span class="fw-bold">Organisateur:</span> <?= $event['organizer'] ?>
             </div>
             <div class="pb-2">
-                <span class="fw-bold">Date:</span> Du <?= $event['datestart'] ?>
-                : <?= substr($event['timestart'], 0, 5) ?>
-                <span class="fw-bold">à</span> <?= $event['dateend'] ?> : <?= substr($event['timeend'], 0, 5) ?>
+                <span class="fw-bold">Date:</span> Du <?= $event['start_date'] ?>
+                : <?= substr($event['start_time'], 0, 5) ?>
+                <span class="fw-bold">à</span> <?= $event['end_date'] ?> : <?= substr($event['end_time'], 0, 5) ?>
             </div>
             <p>
                 <span class="fw-bold">Description:</span> <?= $event['description'] ?>
@@ -51,15 +51,15 @@ $legsTemplate = new Template($_SERVER["DOCUMENT_ROOT"] . "/public/templates/legs
                 <tbody>
                 <tr>
                     <th scope="row">Type de terrain</th>
-                    <td><?= $sportTerrain["json_featuretype"] . " - " . $sportTerrain["type"] ?></td>
+                    <td><?= $sportTerrain["terrain"] . " - " . $sportTerrain["type"] ?></td>
                 </tr>
                 <tr>
                     <th scope="row">Revêtement du sol</th>
-                    <td><?= $sportTerrain["revetement_sol"] ?></td>
+                    <td><?= $sportTerrain["flooring"] ?></td>
                 </tr>
                 <tr>
                     <th scope="row">Municipalité</th>
-                    <td><?= $sportTerrain["municipalite"] ?></td>
+                    <td><?= $sportTerrain["city"] ?></td>
                 </tr>
                 <tr>
                     <th scope="row">Longitude</th>

@@ -27,15 +27,15 @@ export class Template {
                 <tbody>
                     <tr>
                         <th scope="row">Type de terrain</th>
-                        <td>${sportTerrain.json_featuretype} - ${sportTerrain.type}</td>
+                        <td>${sportTerrain.terrain} - ${sportTerrain.type}</td>
                     </tr>
                     <tr>
                         <th scope="row">Revêtement du sol</th>
-                        <td>${sportTerrain.revetement_sol}</td>
+                        <td>${sportTerrain.flooring}</td>
                     </tr>
                     <tr>
                         <th scope="row">Municipalité</th>
-                        <td>${sportTerrain.municipalite}</td>
+                        <td>${sportTerrain.city}</td>
                     </tr>
                     <tr>
                         <th scope="row">Longitude</th>
@@ -47,11 +47,11 @@ export class Template {
                     </tr>
                     <tr>
                         <th scope="row">Date de création</th>
-                        <td>${sportTerrain.date_creation}</td>
+                        <td>${sportTerrain.creation_date}</td>
                     </tr>
                     <tr>
                         <th scope="row">Date de modification</th>
-                        <td>${sportTerrain.date_modification.toString().substring(0, sportTerrain.date_modification.toString().length - 3)}</td>
+                        <td>${sportTerrain.modification_date.toString().substring(0, sportTerrain.modification_date.toString().length - 3)}</td>
                     </tr>
                 </tbody>
             </table>
@@ -64,8 +64,8 @@ export class Template {
         for (let event of events) {
             result += `
                 <a style="background: #ffffff; position: relative; z-index: 1" class="border rounded p-3 text-decoration-none text-black border border-2 mt-3 w-100 fw-bold d-flex justify-content-between align-items-center gap-3 flex-wrap" href="/public/views/event/?id=${event.id}">
-                    <span>${event.organizer} - ${event.eventname}</span>
-                    <span>${event.datestart}</span>
+                    <span>${event.organizer} - ${event.event_name}</span>
+                    <span>${event.start_date}</span>
                 </a>
             `;
         }

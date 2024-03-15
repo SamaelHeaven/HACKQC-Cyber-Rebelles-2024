@@ -12,20 +12,17 @@ foreach ($sportTerrains as $terrain) {
 
     $query = "
         INSERT INTO sport_terrain 
-            (json_featuretype, id, type, revetement_sol, municipalite, geom, date_creation, date_creation, longitude, latitude, json_ogc_wkt_crs, json_geometry) 
+            (terrain, id, type, flooring, city, creation_date, modification_date, longitude, latitude) 
         VALUES (
-            '{$terrain['json_featuretype']}',
+           '{$terrain['json_featuretype']}',
             {$terrain['ID']},
             '{$terrain['TYPE']}',
             '{$terrain['REVETEMENT_SOL']}',
             '{$terrain['MUNICIPALITE']}',
-            '{$terrain['GEOM']}',
             '$dateCreation',
             '$dateModification', 
             {$terrain['LONGITUDE']},
-            {$terrain['LATITUDE']},
-            '{$terrain['json_ogc_wkt_crs']}',
-            '" . json_encode($terrain['json_geometry']) . "'
+            {$terrain['LATITUDE']}
         )";
 
     DatabaseService::query($query);

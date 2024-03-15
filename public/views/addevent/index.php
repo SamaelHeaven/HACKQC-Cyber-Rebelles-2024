@@ -15,10 +15,10 @@ $terrainId = null;
 $organizer = "";
 $eventName = "";
 $description = "";
-$dateStart = "";
-$dateEnd = "";
-$timeStart = "";
-$timeEnd = "";
+$startDate = "";
+$endDate = "";
+$startTime = "";
+$endTime = "";
 $errorMessage = "";
 
 $receivedElement = null;
@@ -37,28 +37,28 @@ if ($receivedElement == []) {
 $formTemplate->setVariable('terrainId', $terrainId);
 
 if (isset($_POST['organizer']) &&
-    isset($_POST['eventName']) &&
+    isset($_POST['event_name']) &&
     isset($_POST['description']) &&
-    isset($_POST['dateStart']) &&
-    isset($_POST['dateEnd']) &&
-    isset($_POST['timeStart']) &&
-    isset($_POST['timeEnd'])) {
+    isset($_POST['start_date']) &&
+    isset($_POST['end_date']) &&
+    isset($_POST['start_time']) &&
+    isset($_POST['end_time'])) {
 
     $organizer = DatabaseService::escapeString($_POST['organizer']);
-    $eventName = DatabaseService::escapeString($_POST['eventName']);
+    $eventName = DatabaseService::escapeString($_POST['event_name']);
     $description = DatabaseService::escapeString($_POST['description']);
-    $dateStart = DatabaseService::escapeString($_POST['dateStart']);
-    $dateEnd = DatabaseService::escapeString($_POST['dateEnd']);
-    $timeStart = DatabaseService::escapeString($_POST['timeStart']);
-    $timeEnd = DatabaseService::escapeString($_POST['timeEnd']);
+    $startDate = DatabaseService::escapeString($_POST['start_date']);
+    $endDate = DatabaseService::escapeString($_POST['end_date']);
+    $startTime = DatabaseService::escapeString($_POST['start_time']);
+    $endTime = DatabaseService::escapeString($_POST['end_time']);
 
     $formTemplate->setVariable('organizer', $organizer);
-    $formTemplate->setVariable('eventName', $eventName);
+    $formTemplate->setVariable('event_name', $eventName);
     $formTemplate->setVariable('description', $description);
-    $formTemplate->setVariable('dateStart', $dateStart);
-    $formTemplate->setVariable('dateEnd', $dateEnd);
-    $formTemplate->setVariable('timeStart', $timeStart);
-    $formTemplate->setVariable('timeEnd', $timeEnd);
+    $formTemplate->setVariable('start_date', $startDate);
+    $formTemplate->setVariable('end_date', $endDate);
+    $formTemplate->setVariable('start_time', $startTime);
+    $formTemplate->setVariable('end_time', $endTime);
 
 
 } else {

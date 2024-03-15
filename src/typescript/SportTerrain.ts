@@ -1,14 +1,11 @@
 export interface SportTerrain {
-    json_featuretype: string;
+    terrain: string;
     id: string;
     type: string;
-    revetement_sol: string;
-    municipalite: string;
-    geom: string;
-    date_creation: Date;
-    date_modification: Date;
+    flooring: string;
+    city: string;
+    creation_date: Date;
+    modification_date: Date;
     longitude: string;
     latitude: string;
-    json_ogc_wkt_crs: string;
-    json_geometry: string;
 }

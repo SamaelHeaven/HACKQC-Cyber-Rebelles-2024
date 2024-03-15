@@ -19,7 +19,7 @@ $sportTerrains = DatabaseService::query("SELECT * FROM sport_terrain");
 ?>
 <div class="flex-grow-1 w-100 row m-0 border border-5">
     <div class="col-md-8 p-0">
-        <div id="map" class="w-100 h-100"></div>
+        <div id="map" class="w-100 h-100" style="min-height: 400px"></div>
     </div>
     <div class="col-md-4 overflow-auto py-3 map-panel" data-map-panel>
         <div class="alert alert-warning" role="alert">

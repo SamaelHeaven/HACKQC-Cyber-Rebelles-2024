@@ -1,6 +1,6 @@
 <?php
 
-require_once($_SERVER["DOCUMENT_ROOT"]. "/src/php/services/DatabaseService.php");
+require_once($_SERVER["DOCUMENT_ROOT"] . "/src/php/services/DatabaseService.php");
 
 $detectError ??= true;
 
@@ -57,7 +57,7 @@ $invalidCss = "is-invalid";
 ?>
 
 <div class="wrapper-md">
-    <div class="d-flex justify-content-center mt-5 mb-4 ">
+    <div class="d-flex justify-content-center mt-3 mb-4 ">
         <h1>Ajout d'événement</h1>
     </div>
 
@@ -105,7 +105,7 @@ $invalidCss = "is-invalid";
             } ?>" type="time" id="timeEnd" name="timeEnd" value="<?= $timeEnd ?>">
         </div>
 
-        <div class="d-flex align-items-center flex-wrap gap-3 justify-content-between w-100 mt-3 mb-5 col">
+        <div class="d-flex align-items-center flex-wrap gap-3 justify-content-between w-100 mt-3 mb-3 col">
 
             <div>
                 <?php

@@ -22,7 +22,7 @@ $sportTerrains = DatabaseService::query("SELECT * FROM sport_terrain");
         <div id="map" class="w-100 h-100" style="min-height: 400px"></div>
     </div>
     <div class="col-md-4 overflow-auto py-3 map-panel" data-map-panel>
-        <div class="alert alert-warning" role="alert">
+        <div class="alert alert-warning text-center" role="alert">
             Sélectionner un marqueur pour voir les événements
         </div>
     </div>

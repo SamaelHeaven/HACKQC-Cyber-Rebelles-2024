@@ -19,7 +19,7 @@ export class Template {
     }
     static getInfoPanel(sportTerrain) {
         return `
-            <table class="table table-responsive table-striped">
+            <table style="position:relative; z-index: 1" class="table table-responsive table-striped">
                 <tbody>
                     <tr>
                         <th scope="row">Type de terrain</th>
@@ -55,10 +55,10 @@ export class Template {
     }
     static getEventsPanel(sportTerrain, events) {
         let result = "<div class='mb-3'>";
-        result += `<a class="btn btn-secondary w-100 fs-4 fw-bold opac" href="/public/views/addevent/?terrainId=${sportTerrain.id}"><i class="fa-solid fa-plus"></i> Ajouter un événement</a>`;
+        result += `<a style="position:relative; z-index: 1" class="btn btn-secondary w-100 fs-4 fw-bold opac" href="/public/views/addevent/?terrainId=${sportTerrain.id}"><i class="fa-solid fa-plus"></i> Ajouter un événement</a>`;
         for (let event of events) {
             result += `
-                <a class="btn btn-outline-primary mt-3 w-100 fw-bold d-flex justify-content-between align-items-center gap-3 flex-wrap" href="/public/views/event/?id=${event.id}">
+                <a style="background: #ffffff; position: relative; z-index: 1" class="border rounded p-3 text-decoration-none text-black border border-2 mt-3 w-100 fw-bold d-flex justify-content-between align-items-center gap-3 flex-wrap" href="/public/views/event/?id=${event.id}">
                     <span>${event.organizer} - ${event.eventname}</span>
                     <span>${event.datestart}</span>
                 </a>

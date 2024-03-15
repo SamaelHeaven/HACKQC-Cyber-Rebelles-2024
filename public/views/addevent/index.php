@@ -69,7 +69,7 @@ if (isset($_POST['organizer']) &&
 
 <?= $headTemplate->render() ?>
 
-<form class="m-4" action="" method="post">
+<form class="mt-4 mb-3" action="index.php" method="post">
     <?= $formTemplate->render() ?>
 </form>
 

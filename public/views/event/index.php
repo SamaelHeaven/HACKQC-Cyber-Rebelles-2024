@@ -30,14 +30,11 @@ $legsTemplate = new Template($_SERVER["DOCUMENT_ROOT"] . "/public/templates/legs
 
 ?>
 <?= $headTemplate->render() ?>
-    <div class="wrapper-md my-4 border bg-light rounded p-3">
+    <div class="wrapper-md my-4 border border-2 bg-light rounded p-3">
         <h2 class="text-center">
             <?= $event['eventname'] ?>
         </h2>
         <hr>
-        <h3>
-            Description
-        </h3>
         <div class="pb-2">
             <span class="fw-bold">Organisateur:</span> <?= $event['organizer'] ?>
         </div>
@@ -46,11 +43,8 @@ $legsTemplate = new Template($_SERVER["DOCUMENT_ROOT"] . "/public/templates/legs
             <span class="fw-bold">à</span> <?= $event['dateend'] ?> : <?= substr($event['timeend'], 0, 5) ?>
         </div>
         <p>
-            <?= $event['description'] ?>
+            <span class="fw-bold">Description:</span> <?= $event['description'] ?>
         </p>
-        <h3>
-            Terrain
-        </h3>
         <table class="table table-responsive table-striped">
             <tbody>
             <tr>

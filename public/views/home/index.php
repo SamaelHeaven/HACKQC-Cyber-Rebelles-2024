@@ -5,10 +5,10 @@ require_once $_SERVER["DOCUMENT_ROOT"] . "/src/php/models/CurrentPage.php";
 
 $headTemplate = new Template($_SERVER["DOCUMENT_ROOT"] . "/public/templates/head-template.php");
 $headTemplate->setVariable("title", "FitQuest - Accueil");
-$headTemplate->setVariable("mainClasses", "d-flex flex-column justify-content-between home-body");
 $headTemplate->setVariable("currentPage", CurrentPage::Home);
 
 $legsTemplate = new Template($_SERVER["DOCUMENT_ROOT"] . "/public/templates/legs-template.php");
+$legsTemplate->setVariable("insideMain", false);
 
 $mapTemplate = new Template($_SERVER["DOCUMENT_ROOT"] . "/public/templates/map-template.php");
 $mapTemplate->setVariable("latitude", 45.751258);

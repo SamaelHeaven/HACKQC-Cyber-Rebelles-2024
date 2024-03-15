@@ -1,4 +1,15 @@
-</main>
+<?php
+
+/*
+ * bool $insideMain: If the footer is inside the main element
+ */
+
+require_once $_SERVER["DOCUMENT_ROOT"] . "/src/php/models/CurrentPage.php";
+
+$insideMain ??= true;
+
+?>
+<?= !$insideMain ? "</main>" : "" ?>
 <footer class="bg-body-tertiary shadow-lg">
     <div class="container py-3">
         <div class="d-flex footer-content">
@@ -28,4 +39,5 @@
         </div>
     </div>
 </footer>
+<?= $insideMain ? "</main>" : "" ?>
 </body>

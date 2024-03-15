@@ -21,7 +21,7 @@ $timeStart = "";
 $timeEnd = "";
 $errorMessage = "";
 
-$receivedElelemt = null;
+$receivedElement = null;
 if (isset($_POST['terrainId'])) {
     $terrainId = $_POST['terrainId'];
 } else if (isset($_GET['terrainId'])) {
@@ -29,8 +29,8 @@ if (isset($_POST['terrainId'])) {
 } else {
     header('Location: ' . "/public/views/home");
 }
-$receivedElelemt = DatabaseService::query("SELECT * FROM  sport_terrain where id = $terrainId");
-if ($receivedElelemt == []) {
+$receivedElement = DatabaseService::query("SELECT * FROM  sport_terrain where id = '$terrainId'");
+if ($receivedElement == []) {
     header('Location: ' . "/public/views/home");
 }
 

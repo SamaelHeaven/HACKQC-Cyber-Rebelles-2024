@@ -8,7 +8,7 @@ if ($terrainId == null) {
 
 require_once($_SERVER["DOCUMENT_ROOT"]. "/src/php/services/DatabaseService.php");
 
-$events = DatabaseService::query("SELECT * FROM event WHERE sport_terrain_id = " . DatabaseService::escapeString($terrainId));
+$events = DatabaseService::query("SELECT * FROM event WHERE sport_terrain_id = '" . DatabaseService::escapeString($terrainId) . "'");
 
 $json = json_encode($events);
 

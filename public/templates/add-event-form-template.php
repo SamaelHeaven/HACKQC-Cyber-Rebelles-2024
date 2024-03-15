@@ -1,4 +1,7 @@
 <?php
+
+require_once($_SERVER["DOCUMENT_ROOT"]. "/src/php/services/DatabaseService.php");
+
 $detectError ??= true;
 
 $errorMessage ??= "";
@@ -28,7 +31,7 @@ if (!($organizer == "" ||
         $validedate = true;
         if (!($dateStart == $dateEnd && $timeStart >= $timeEnd)) {
             $validetime = true;
-            DatabaseService::query("INSERT INTO event(sport_terrain_id, organizer, eventname, description, datestart, dateend, timestart, timeend) values('$terrainId','$organizer','$eventName','$description','$dateStart','$dateEnd','$timeStart','$timeEnd') ");
+            DatabaseService::query("INSERT INTO event (sport_terrain_id, organizer, eventname, description, datestart, dateend, timestart, timeend) VALUES ('" . DatabaseService::escapeString($terrainId) . "','" . DatabaseService::escapeString($organizer) . "','" . DatabaseService::escapeString($eventName) . "','" . DatabaseService::escapeString($description) . "','" . DatabaseService::escapeString($dateStart) . "','" . DatabaseService::escapeString($dateEnd) . "','" . DatabaseService::escapeString($timeStart) . "','" . DatabaseService::escapeString($timeEnd) . "')");
             $success = true;
             $organizer = "";
             $eventName = "";
@@ -49,8 +52,8 @@ if (!($organizer == "" ||
         $errorMessage = "Un ou plusieurs champs n'ont pas été rempli";
     }
 }
-$cssValide = "is-valid";
-$cssinValide = "is-invalid";
+$validCss = "is-valid";
+$invalidCss = "is-invalid";
 ?>
 
 <div class="wrapper-md">
@@ -62,43 +65,43 @@ $cssinValide = "is-invalid";
         <div class="col-md-6 mb-3">
             <label class="form-label" for="organizer">Organisateur</label>
             <input class="form-control d-block w-100 <?php if ($errorMessage != "") {
-                echo $organizer != "" ? $cssValide : $cssinValide;
+                echo $organizer != "" ? $validCss : $invalidCss;
             } ?>  " type="text" id="organizer" name="organizer" value="<?= $organizer ?>">
         </div>
         <div class="col-md-6 mb-3">
             <label class="form-label" for="eventName">Nom de l'événement</label>
             <input class="form-control d-block w-100 <?php if ($errorMessage != "") {
-                echo $eventName != "" ? $cssValide : $cssinValide;
+                echo $eventName != "" ? $validCss : $invalidCss;
             } ?>" type="text" id="eventName" name="eventName" value="<?= $eventName ?>">
         </div>
         <div class="mb-3">
             <label class="form-label" for="description">Description</label>
             <textarea class="form-control d-block w-100 <?php if ($errorMessage != "") {
-                echo $description != "" ? $cssValide : $cssinValide;
+                echo $description != "" ? $validCss : $invalidCss;
             } ?>" name="description" id="description" cols="30" rows="10"><?= $description ?></textarea>
         </div>
         <div class="col-6 col-md-3 mb-3">
             <label class="form-label" for="dateStart">Date de début</label>
             <input class="form-control d-block <?php if ($errorMessage != "") {
-                echo $validedate ? $cssValide : $cssinValide;
+                echo $validedate ? $validCss : $invalidCss;
             } ?>" type="date" id="dateStart" name="dateStart" value="<?= $dateStart ?>">
         </div>
         <div class="col-6 col-md-3 mb-3">
             <label class="form-label" for="dateEnd">Date de fin</label>
             <input class="form-control d-block <?php if ($errorMessage != "") {
-                echo $validedate ? $cssValide : $cssinValide;
+                echo $validedate ? $validCss : $invalidCss;
             } ?>" type="date" id="dateEnd" name="dateEnd" value="<?= $dateEnd ?>">
         </div>
         <div class="col-6 col-md-3 mb-3">
             <label class="form-label" for="timeStart">Heure de départ</label>
             <input class="form-control d-block <?php if ($errorMessage != "") {
-                echo $validetime ? $cssValide : $cssinValide;
+                echo $validetime ? $validCss : $invalidCss;
             } ?>" type="time" id="timeStart" name="timeStart" value="<?= $timeStart ?>">
         </div>
         <div class="col-6 col-md-3 mb-4">
             <label class="form-label" for="timeEnd">Heure de fin</label>
             <input class="form-control d-block <?php if ($errorMessage != "") {
-                echo $validetime ? $cssValide : $cssinValide;
+                echo $validetime ? $validCss : $invalidCss;
             } ?>" type="time" id="timeEnd" name="timeEnd" value="<?= $timeEnd ?>">
         </div>
 

@@ -48,5 +48,7 @@ $eventDetailsTemplate->setVariable("event", $event);
 
 ?>
 <?= $headTemplate->render() ?>
+
 <?= $eventDetailsTemplate->render() ?>
+
 <?= $legsTemplate->render() ?>

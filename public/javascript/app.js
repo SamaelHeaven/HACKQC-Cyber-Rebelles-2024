@@ -2,17 +2,17 @@ import { SportTerrainService } from "./SportTerrainService.js";
 import { Template } from "./Template.js";
 import { EventService } from "./EventService.js";
 document.body.addEventListener('click', (event) => {
-    let target = event.target;
+    const target = event.target;
     handleNavLinkClick(target);
 });
 function handleNavLinkClick(target) {
-    let navLink = target.closest('[data-nav-link]');
+    const navLink = target.closest('[data-nav-link]');
     if (!navLink) {
         return;
     }
-    let mapPanelSection = document.querySelector('[data-map-panel-section]');
-    let terrainId = Number(mapPanelSection.dataset['mapPanelSection']);
-    SportTerrainService.getById(terrainId).then(sportTerrain => {
+    const mapPanelSection = document.querySelector('[data-map-panel-section]');
+    const terrainId = Number(mapPanelSection.dataset['mapPanelSection']);
+    SportTerrainService.getById(terrainId).then((sportTerrain) => {
         for (const element of Array.from(document.querySelectorAll('[data-nav-link]'))) {
             element.classList.remove("active");
         }
@@ -21,7 +21,7 @@ function handleNavLinkClick(target) {
             mapPanelSection.innerHTML = Template.getInfoPanel(sportTerrain);
         }
         if (navLink.dataset['navLink'] === "events") {
-            EventService.getListBySportTerrainId(terrainId).then(events => {
+            EventService.getListBySportTerrainId(terrainId).then((events) => {
                 mapPanelSection.innerHTML = Template.getEventsPanel(sportTerrain, events);
             });
         }

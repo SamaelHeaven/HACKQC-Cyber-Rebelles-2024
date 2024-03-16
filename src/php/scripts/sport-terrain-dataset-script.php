@@ -72,7 +72,7 @@ foreach ($sportTerrains['features'] as $terrain) {
             'Terrain sportif',
             '" . titleCase(DatabaseService::escapeString($properties['TYPE_INSTALLATION'])) . "',
             'Saguenay',
-            '" . titleCase(trim(DatabaseService::escapeString($properties['PARC'])))  ."',
+            '" . titleCase(trim(DatabaseService::escapeString($properties['PARC']))) . "',
             '$coordinates[0]',
             '$coordinates[1]'
         )";

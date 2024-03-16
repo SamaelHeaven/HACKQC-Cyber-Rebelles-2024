@@ -44,22 +44,22 @@ $cyclePaths = DatabaseService::query("SELECT * FROM cycle_path");
 <script type="module">
     <?= ("import { WorldMap } from \"" . $jsPath . "/WorldMap.js\";") ?>
 
-    let map = L.map('map').setView([<?= $latitude ?>, <?= $longitude?>], <?= $zoom ?>);
+    const map = L.map('map').setView([<?= $latitude ?>, <?= $longitude?>], <?= $zoom ?>);
 
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 19,
         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(map);
 
-    let markers = L.layerGroup().addTo(map);
-    let numberMarkers = L.layerGroup().addTo(map);
+    const markers = L.layerGroup().addTo(map);
+    const numberMarkers = L.layerGroup().addTo(map);
 
     <?php
 
     $i = 0;
     foreach ($sportTerrains as $sportTerrain) {
         $events = DatabaseService::query("SELECT * FROM event WHERE sport_terrain_id = " . $sportTerrain['id']);
-        echo "let marker" . $i . " = L.marker([" . $sportTerrain['latitude'] . "," . $sportTerrain['longitude'] . "]).addTo(markers);";
+        echo "const marker" . $i . " = L.marker([" . $sportTerrain['latitude'] . "," . $sportTerrain['longitude'] . "]).addTo(markers);";
         echo "marker" . $i . ".bindPopup(\"" . $sportTerrain['type'] . "\");";
         if (count($events) > 0) {
             echo "L.marker([" . $sportTerrain['latitude'] . "," . $sportTerrain['longitude'] . "], {icon: L.divIcon({className: 'custom-icon', html: '<div class=\"bg-danger text-center rounded-circle text-white border border-black border-2 fw-bold\">" . count($events) . "</div>', iconAnchor: [-5, 50], iconSize: [20, 20]})}).addTo(numberMarkers);";

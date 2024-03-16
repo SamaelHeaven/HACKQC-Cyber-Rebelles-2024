@@ -67,9 +67,9 @@ export class Template {
     }
 
     public static getEventsPanel(sportTerrain: SportTerrain, events: Event[]): string {
-        let result = "<div class='mb-3'>";
+        let result: string = "<div class='mb-3'>";
         result += `<a class="btn btn-secondary on-top w-100 fs-4 fw-bold" href="/public/views/add-event/?terrainId=${sportTerrain.id}"><i class="fa-solid fa-plus"></i> Ajouter un événement</a>`;
-        for (let event of events) {
+        for (const event of events) {
             result += `
                 <a class="border rounded p-3 text-decoration-none text-black border border-2 mt-3 w-100 fw-bold d-flex justify-content-between align-items-center gap-3 flex-wrap event-button on-top bg-white" href="/public/views/event/?id=${event.id}">
                     <span>${event.organizer} - ${event.event_name}</span>

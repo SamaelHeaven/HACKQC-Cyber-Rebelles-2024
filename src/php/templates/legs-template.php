@@ -18,7 +18,8 @@ $insideMain ??= true;
                     <a href="/public/views/home/index.php"><img src="/public/images/fit-quest-logo.png" alt="FitQuest"
                                                                 class="footer-logo"></a>
                     <a href="https://devpost.com/software/hackqc-2024" target="_blank"><img
-                                src="/public/images/cyber-rebelles-logo.png" alt="Cyber-Rebelles" class="footer-logo"></a>
+                                src="/public/images/cyber-rebelles-logo.png" alt="Cyber-Rebelles"
+                                class="footer-logo"></a>
                 </div>
                 <div class="pt-3 copyright-text">© Cyber-Rebelles 2024</div>
             </div>

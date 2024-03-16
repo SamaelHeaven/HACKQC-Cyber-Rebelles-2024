@@ -14,7 +14,7 @@ foreach ($sportTerrains as $terrain) {
         INSERT INTO sport_terrain 
             (terrain, id, type, flooring, city, creation_date, modification_date, longitude, latitude) 
         VALUES (
-           '{$terrain['json_featuretype']}',
+            '{$terrain['json_featuretype']}',
             {$terrain['ID']},
             '{$terrain['TYPE']}',
             '{$terrain['REVETEMENT_SOL']}',

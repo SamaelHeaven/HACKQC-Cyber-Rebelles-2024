@@ -26,3 +26,10 @@ CREATE TABLE event
     start_time       TIME,
     end_time         TIME
 );
+
+CREATE TABLE cycle_path
+(
+    id               SERIAL PRIMARY KEY,
+    type             VARCHAR,
+    coordinates_json VARCHAR
+);

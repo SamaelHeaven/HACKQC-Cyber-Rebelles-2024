@@ -24,7 +24,7 @@ services:
     volumes:
       - ./sql:/docker-entrypoint-initdb.d/sql
       - ./sql/database.sql:/docker-entrypoint-initdb.d/1-database.sql
-      - ./sql/mocks/sport-terrain-mock.sql:/docker-entrypoint-initdb.d/2-mocks.sql
+      - ./sql/mocks.sql:/docker-entrypoint-initdb.d/2-mocks.sql
     restart: 'always'
     ports:
       - "5432:5432"

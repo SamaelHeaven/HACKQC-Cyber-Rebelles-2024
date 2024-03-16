@@ -16,10 +16,23 @@ $jsPath ??= "../../javascript";
 
 $sportTerrains = DatabaseService::query("SELECT * FROM sport_terrain");
 
+$cyclePaths = DatabaseService::query("SELECT * FROM cycle_path");
+
 ?>
 <div class="flex-grow-1 w-100 row m-0 border border-5">
-    <div class="col-md-8 p-0">
-        <div id="map" class="w-100 h-100" style="min-height: 400px"></div>
+    <div class="col-md-8 p-0 map-container">
+        <div id="map" class="w-100 h-100 map"></div>
+        <div class="map-legend bg-light rounded p-2">
+            <h2 class="fs-5 text-center">Légende</h2>
+            <div class="d-flex justify-content-between align-items-center gap-2 flex-wrap">
+                <div class="sport-terrain-legend"></div>
+                <span>Terrain sportif</span>
+            </div>
+            <div class="d-flex justify-content-between align-items-center gap-2 flex-wrap">
+                <div class="cycle-path-legend"></div>
+                <span>Piste cyclable</span>
+            </div>
+        </div>
     </div>
     <div class="col-md-4 overflow-auto py-3 map-panel" data-map-panel>
         <div class="alert alert-warning text-center on-top" role="alert">
@@ -45,14 +58,39 @@ $sportTerrains = DatabaseService::query("SELECT * FROM sport_terrain");
 
     $i = 0;
     foreach ($sportTerrains as $sportTerrain) {
-        $events = DatabaseService::query("SELECT * FROM event WHERE sport_terrain_id = ". $sportTerrain['id']);
+        $events = DatabaseService::query("SELECT * FROM event WHERE sport_terrain_id = " . $sportTerrain['id']);
         echo "let marker" . $i . " = L.marker([" . $sportTerrain['latitude'] . "," . $sportTerrain['longitude'] . "]).addTo(markers);\n";
         echo "marker" . $i . ".bindPopup('" . $sportTerrain['type'] . "');\n";
         if (count($events) > 0) {
-            echo "L.marker([" . $sportTerrain['latitude'] . "," . $sportTerrain['longitude'] . "], {icon: L.divIcon({className: 'custom-icon', html: '<div class=\"bg-danger text-center rounded-circle text-white border border-black border-2 fw-bold\">". count($events) ."</div>', iconAnchor: [-5, 50], iconSize: [20, 20]})}).addTo(numberMarkers);\n";
+            echo "L.marker([" . $sportTerrain['latitude'] . "," . $sportTerrain['longitude'] . "], {icon: L.divIcon({className: 'custom-icon', html: '<div class=\"bg-danger text-center rounded-circle text-white border border-black border-2 fw-bold\">" . count($events) . "</div>', iconAnchor: [-5, 50], iconSize: [20, 20]})}).addTo(numberMarkers);\n";
         }
         echo "marker" . $i . ".on('click', function (e) { WorldMap.onMarkerClick(" . $sportTerrain['id'] . ") });\n";
         $i++;
     }
+
+    foreach ($cyclePaths as $cyclePath) {
+        $coordinates = json_decode($cyclePath['coordinates_json'], true);
+        $geoJSONFeature = [
+            'type' => 'Feature',
+            'geometry' => [
+                'type' => $cyclePath['type'],
+                'coordinates' => $coordinates
+            ],
+            'properties' => [
+                'color' => 'green',
+                'weight' => 3
+            ]
+        ];
+        $geoJSON = json_encode($geoJSONFeature);
+        echo "L.geoJSON($geoJSON, {
+            style: function(feature) {
+                return {
+                    color: feature.properties.color,
+                    weight: feature.properties.weight
+                };
+            }
+        }).addTo(map);\n";
+    }
+
     ?>
 </script>

@@ -20,8 +20,8 @@ $endDate = "";
 $startTime = "";
 $endTime = "";
 $errorMessage = "";
-
 $receivedElement = null;
+
 if (isset($_POST['terrainId'])) {
     $terrainId = $_POST['terrainId'];
 } else if (isset($_GET['terrainId'])) {
@@ -29,6 +29,7 @@ if (isset($_POST['terrainId'])) {
 } else {
     header('Location: ' . "/public/views/home");
 }
+
 $receivedElement = DatabaseService::query("SELECT * FROM  sport_terrain where id = '" . DatabaseService::escapeString($terrainId) . "'");
 if ($receivedElement === null || sizeof($receivedElement) === 0) {
     header('Location: ' . "/public/views/home");
@@ -59,8 +60,6 @@ if (isset($_POST['organizer']) &&
     $formTemplate->setVariable('endDate', $endDate);
     $formTemplate->setVariable('startTime', $startTime);
     $formTemplate->setVariable('endTime', $endTime);
-
-
 } else {
     $formTemplate->setVariable('detectError', false);
 }

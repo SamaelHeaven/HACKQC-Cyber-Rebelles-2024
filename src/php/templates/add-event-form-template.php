@@ -20,7 +20,6 @@ $validDate ??= false;
 $validTime ??= false;
 
 if ($detectError) {
-
     if ($endDate != "" && $startDate != "" && $startDate <= $endDate) {
         $validDate = true;
     } else {
@@ -32,7 +31,6 @@ if ($detectError) {
     } else {
         $errorMessage = "L'événement ne peut pas se terminer avant d'avoir commencé";
     }
-
 
     if ($organizer === "" ||
         $eventName === "" ||
@@ -133,7 +131,7 @@ $invalidCss = "is-invalid";
                 ?>
             </div>
             <div>
-                <input class="btn btn-primary" type="submit" value="Ajouter l'événement">
+                <input class="btn btn-primary" type="submit">
             </div>
         </div>
         <input type="hidden" value="<?= $terrainId ?>" name="terrainId">

@@ -30,7 +30,7 @@ if (isset($_POST['terrainId'])) {
     header('Location: ' . "/public/views/home");
 }
 $receivedElement = DatabaseService::query("SELECT * FROM  sport_terrain where id = '" . DatabaseService::escapeString($terrainId) . "'");
-if ($receivedElement == []) {
+if ($receivedElement === []) {
     header('Location: ' . "/public/views/home");
 }
 

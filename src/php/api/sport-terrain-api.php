@@ -2,7 +2,7 @@
 
 $id = $_GET["id"] ?? null;
 
-if ($id == null) {
+if ($id === null) {
     exit;
 }
 

@@ -55,9 +55,9 @@ $currentPage ??= CurrentPage::None;
                 </div>
                 <div class="collapse navbar-collapse" id="mobileMenu">
                     <div class="navbar-nav w-100 d-flex flex-row align-items-center justify-content-end gap-4 ">
-                        <a class="nav-link<?= $currentPage == CurrentPage::Home ? " active" : "" ?>"
+                        <a class="nav-link<?= $currentPage === CurrentPage::Home ? " active" : "" ?>"
                            href="/public/views/home">Accueil</a>
-                        <a class="nav-link<?= $currentPage == CurrentPage::About ? " active" : "" ?>"
+                        <a class="nav-link<?= $currentPage === CurrentPage::About ? " active" : "" ?>"
                            href="/public/views/about">À propos</a>
                     </div>
                 </div>

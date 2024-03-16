@@ -2,7 +2,7 @@
 
 $terrainId = $_GET["terrainId"] ?? null;
 
-if ($terrainId == null) {
+if ($terrainId === null) {
     exit;
 }
 

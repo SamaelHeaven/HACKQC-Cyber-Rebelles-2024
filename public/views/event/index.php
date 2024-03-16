@@ -32,13 +32,13 @@ if (isset($_POST['deleteEvent'])) {
 
 $id = $_GET['id'] ?? null;
 
-if ($id == null) {
+if ($id === null) {
     header('location: /public/views/home/');
 }
 
 $event = DatabaseService::query("SELECT * FROM event WHERE id = '$id'");
 
-if ($event == null || sizeof($event) == 0) {
+if ($event === null || sizeof($event) === 0) {
     header('location: /public/views/home/');
 }
 
@@ -46,7 +46,7 @@ $event = $event[0];
 
 $sportTerrain = DatabaseService::query("SELECT * FROM sport_terrain WHERE id = '" . $event['sport_terrain_id'] . "'")[0];
 
-if ($sportTerrain == null) {
+if ($sportTerrain === null) {
     header('location: /public/views/home/');
 }
 
@@ -74,7 +74,7 @@ if ($sportTerrain == null) {
             <div class="pb-2">
                 <span class="fw-bold">Date:</span> Du <?= $event['start_date'] ?>
                 : <?= substr($event['start_time'], 0, 5) ?>
-                à <?= $event['end_date'] ?> : <?= substr($event['end_time'], 0, 5) ?>
+                à <?= $event['start_date'] ===  $event['end_date'] ? "" : $event['end_date'] . " : " ?><?= substr($event['end_time'], 0, 5) ?>
             </div>
             <p>
                 <span class="fw-bold">Description:</span> <?= $event['description'] ?>

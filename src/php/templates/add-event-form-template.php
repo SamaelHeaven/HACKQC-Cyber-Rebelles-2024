@@ -131,7 +131,7 @@ $invalidCss = "is-invalid";
                 ?>
             </div>
             <div>
-                <input class="btn btn-primary" type="submit">
+                <button class="btn btn-primary" type="submit">Ajouter l'événement</button>
             </div>
         </div>
         <input type="hidden" value="<?= $terrainId ?>" name="terrainId">

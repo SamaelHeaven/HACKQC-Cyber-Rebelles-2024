@@ -18,8 +18,6 @@ document.body.addEventListener('click', (event) => {
             }
             if (navLink.dataset['navLink'] === "events") {
                 EventService.getListBySportTerrainId(terrainId).then(events => {
-                    console.log(terrainId)
-                    console.log(events)
                     mapPanelSection.innerHTML = Template.getEventsPanel(sportTerrain, events);
                 })
             }

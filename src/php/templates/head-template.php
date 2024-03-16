@@ -40,7 +40,7 @@ $currentPage ??= CurrentPage::None;
         <div class="container">
             <header class="w-100 d-md-flex justify-content-between">
                 <div class="d-flex justify-content-between gap-2 flex-wrap">
-                    <a class="navbar-brand d-flex gap-2 align-items-center" href="/public/views/home/">
+                    <a class="navbar-brand d-flex gap-2 align-items-center" href="/public/views/home">
                         <img src="/public/images/fit-quest-logo.png" alt="Logo"
                              class="d-inline-block align-text-top nav-logo">
                         <h1 class="nav-name fw-light mb-0">FitQuest</h1>
@@ -56,9 +56,9 @@ $currentPage ??= CurrentPage::None;
                 <div class="collapse navbar-collapse" id="mobileMenu">
                     <div class="navbar-nav w-100 d-flex flex-row align-items-center justify-content-end gap-4 ">
                         <a class="nav-link<?= $currentPage == CurrentPage::Home ? " active" : "" ?>"
-                           href="/public/views/home/">Accueil</a>
+                           href="/public/views/home">Accueil</a>
                         <a class="nav-link<?= $currentPage == CurrentPage::About ? " active" : "" ?>"
-                           href="/public/views/about/">À propos</a>
+                           href="/public/views/about">À propos</a>
                     </div>
                 </div>
             </header>

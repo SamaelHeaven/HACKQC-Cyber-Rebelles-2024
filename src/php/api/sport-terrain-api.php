@@ -6,7 +6,7 @@ if ($id == null) {
     exit;
 }
 
-require_once($_SERVER["DOCUMENT_ROOT"]. "/src/php/services/DatabaseService.php");
+require_once($_SERVER["DOCUMENT_ROOT"] . "/src/php/services/DatabaseService.php");
 
 $sportTerrains = DatabaseService::query("SELECT * FROM sport_terrain WHERE id = '" . DatabaseService::escapeString($id) . "'");
 

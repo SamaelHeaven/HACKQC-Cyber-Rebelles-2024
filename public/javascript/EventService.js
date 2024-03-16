@@ -10,7 +10,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 export class EventService {
     static getListBySportTerrainId(id) {
         return __awaiter(this, void 0, void 0, function* () {
-            let response = yield fetch("/api/event-api.php?terrainId=" + id);
+            let response = yield fetch("/src/php/api/event-api.php?terrainId=" + id);
             return yield response.json();
         });
     }

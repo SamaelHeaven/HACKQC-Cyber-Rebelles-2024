@@ -14,4 +14,10 @@ export class SportTerrainService {
             return yield response.json();
         });
     }
+    static getList() {
+        return __awaiter(this, void 0, void 0, function* () {
+            const response = yield fetch("/src/php/api/sport-terrain-api.php?list=true");
+            return yield response.json();
+        });
+    }
 }

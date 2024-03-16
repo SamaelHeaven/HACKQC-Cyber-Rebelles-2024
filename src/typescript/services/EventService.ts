@@ -1,4 +1,4 @@
-import {Event} from "./Event.js";
+import {Event} from "../models/Event.js";
 
 export class EventService {
     public static async getListBySportTerrainId(id: number): Promise<Event[]> {

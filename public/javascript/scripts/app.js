@@ -1,6 +1,6 @@
-import { SportTerrainService } from "./SportTerrainService.js";
-import { Template } from "./Template.js";
-import { EventService } from "./EventService.js";
+import { SportTerrainService } from "../services/SportTerrainService.js";
+import { Template } from "../helpers/Template.js";
+import { EventService } from "../services/EventService.js";
 document.body.addEventListener('click', (event) => {
     const target = event.target;
     handleNavLinkClick(target);

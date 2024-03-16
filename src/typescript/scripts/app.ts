@@ -1,8 +1,8 @@
-import {SportTerrainService} from "./SportTerrainService.js";
-import {Template} from "./Template.js";
-import {EventService} from "./EventService.js";
-import {SportTerrain} from "./SportTerrain";
-import {Event} from "./Event";
+import {SportTerrainService} from "../services/SportTerrainService.js";
+import {Template} from "../helpers/Template.js";
+import {EventService} from "../services/EventService.js";
+import {SportTerrain} from "../models/SportTerrain.js";
+import {Event} from "../models/Event.js";
 
 document.body.addEventListener('click', (event: MouseEvent): void => {
     const target: HTMLElement = event.target as HTMLElement;

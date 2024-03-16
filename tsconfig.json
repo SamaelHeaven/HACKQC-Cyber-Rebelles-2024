@@ -3,7 +3,7 @@
     "outDir": "public/javascript",
     "target": "ES6",
     "lib": [
-      "es6",
+      "ES6",
       "dom"
     ]
   }

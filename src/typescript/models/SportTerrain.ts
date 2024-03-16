@@ -9,4 +9,5 @@ export interface SportTerrain {
     modification_date: Date | null;
     longitude: string;
     latitude: string;
+    nb_events: string;
 }

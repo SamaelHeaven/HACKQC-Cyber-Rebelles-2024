@@ -32,8 +32,8 @@
     </div>
 
     <p class="pb-3">
-        Et ce qui est le plus formidable, c’est que n’importe qui aura l’occasion d’organiser une activité
-        sportive ne nous ne croyons alors fortement que l’accès à l’information concernant les activités sportives
-        disponibles.
+        Et ce qui est le plus formidable, c’est que n’importe qui aura l’occasion d’organiser une activité sportive!
+        Nous croyons alors fortement que l’accès à l’information concernant les activités sportives disponibles motivera
+        les gens à faire plus de sport et d'avoir la chance de partager un sport avec d'autres personnes.
     </p>
 </section>

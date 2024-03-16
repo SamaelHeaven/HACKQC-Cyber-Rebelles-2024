@@ -1,5 +1,5 @@
-import {SportTerrain} from "./SportTerrain.js";
-import {Event} from "./Event.js";
+import {SportTerrain} from "../models/SportTerrain.js";
+import {Event} from "../models/Event.js";
 
 export class Template {
     public static getMapPanel(sportTerrain: SportTerrain): string {

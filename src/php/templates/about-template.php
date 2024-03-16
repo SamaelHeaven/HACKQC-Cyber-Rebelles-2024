@@ -37,7 +37,3 @@
         disponibles.
     </p>
 </section>
-
-
-
-

@@ -1,6 +1,34 @@
 <?php
 
 require_once($_SERVER["DOCUMENT_ROOT"] . "/src/php/services/DatabaseService.php");
+require_once($_SERVER["DOCUMENT_ROOT"] . "/src/php/models/Template.php");
+require_once $_SERVER["DOCUMENT_ROOT"] . "/src/php/models/CurrentPage.php";
+
+$headTemplate = new Template($_SERVER["DOCUMENT_ROOT"] . "/src/php/templates/head-template.php");
+$headTemplate->setVariable("title", "FitQuest - Événement");
+
+$legsTemplate = new Template($_SERVER["DOCUMENT_ROOT"] . "/src/php/templates/legs-template.php");
+
+
+if (isset($_POST['deleteEvent'])) {
+    $eventToDeleteId = $_POST['deleteEvent'];
+
+    $result = DatabaseService::query("DELETE FROM event WHERE id = '" . DatabaseService::escapeString($eventToDeleteId) . "'");
+
+    echo $headTemplate->render();
+    ?>
+
+    <div class="wrapper-sm">
+        <div class="alert alert-success my-4 text-center" role="alert">
+            L'événement a bien été supprimé.
+        </div>
+    </div>
+
+    <?php
+    echo $legsTemplate->render();
+
+    exit;
+}
 
 $id = $_GET['id'] ?? null;
 
@@ -8,11 +36,13 @@ if ($id == null) {
     header('location: /public/views/home/');
 }
 
-$event = DatabaseService::query("SELECT * FROM event WHERE id = '$id'")[0];
+$event = DatabaseService::query("SELECT * FROM event WHERE id = '$id'");
 
-if ($event == null) {
+if ($event == null || sizeof($event) == 0) {
     header('location: /public/views/home/');
 }
+
+$event = $event[0];
 
 $sportTerrain = DatabaseService::query("SELECT * FROM sport_terrain WHERE id = '" . $event['sport_terrain_id'] . "'")[0];
 
@@ -20,25 +50,22 @@ if ($sportTerrain == null) {
     header('location: /public/views/home/');
 }
 
-require_once($_SERVER["DOCUMENT_ROOT"] . "/src/php/models/Template.php");
-require_once $_SERVER["DOCUMENT_ROOT"] . "/src/php/models/CurrentPage.php";
-
-$headTemplate = new Template($_SERVER["DOCUMENT_ROOT"] . "/src/php/templates/head-template.php");
-$headTemplate->setVariable("title", "FitQuest - Accueil");
-
-$legsTemplate = new Template($_SERVER["DOCUMENT_ROOT"] . "/src/php/templates/legs-template.php");
-
 ?>
 <?= $headTemplate->render() ?>
     <div class="mx-2">
         <div class="wrapper-md my-4 border border-2 bg-light rounded p-3">
             <div class="d-flex justify-content-between align-items-center gap-2 flex-wrap">
-                <button class="btn btn-secondary" onclick="history.back()"><i class="fa-solid fa-arrow-left"></i>
+                <button class="btn btn-secondary" onclick="history.back()">
+                    <i class="fa-solid fa-arrow-left"></i>
                 </button>
                 <h2>
                     <?= $event['event_name'] ?>
                 </h2>
-                <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
+                <form action="index.php" method="post">
+                    <button type="submit" name="deleteEvent" value="<?= $event['id'] ?>" class="btn btn-danger">
+                        <i class="fa-solid fa-trash"></i>
+                    </button>
+                </form>
             </div>
             <hr>
             <div class="pb-2">

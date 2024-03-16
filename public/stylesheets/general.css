@@ -15,6 +15,10 @@ h6 {
     font-weight: 700;
 }
 
+.home-body {
+    min-height: 100svh;
+}
+
 .about-content {
     text-align: center;
 }
@@ -39,6 +43,7 @@ h6 {
 
 .map-panel {
     position: relative;
+    max-height: 100svh;
 }
 
 .map-panel:before {
@@ -56,10 +61,6 @@ h6 {
     background-repeat: no-repeat;
     background-size: contain;
     pointer-events: none;
-}
-
-.home-body {
-    min-height: 100svh;
 }
 
 .on-top {

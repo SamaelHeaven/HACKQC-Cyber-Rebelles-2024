@@ -70,7 +70,7 @@ $cyclePaths = DatabaseService::query("SELECT * FROM cycle_path");
 
     foreach ($cyclePaths as $cyclePath) {
         $coordinates = json_decode($cyclePath['coordinates_json'], true);
-        $geoJSONFeature = [
+        $geoJsonFeature = [
             'type' => 'Feature',
             'geometry' => [
                 'type' => $cyclePath['type'],
@@ -81,8 +81,8 @@ $cyclePaths = DatabaseService::query("SELECT * FROM cycle_path");
                 'weight' => 3
             ]
         ];
-        $geoJSON = json_encode($geoJSONFeature);
-        echo "L.geoJSON($geoJSON, {
+        $geoJson = json_encode($geoJsonFeature);
+        echo "L.geoJSON($geoJson, {
             style: function(feature) {
                 return {
                     color: feature.properties.color,

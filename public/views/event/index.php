@@ -30,11 +30,16 @@ $legsTemplate = new Template($_SERVER["DOCUMENT_ROOT"] . "/src/php/templates/leg
 
 ?>
 <?= $headTemplate->render() ?>
-    <div>
+    <div class="mx-2">
         <div class="wrapper-md my-4 border border-2 bg-light rounded p-3">
-            <h2 class="text-center">
-                <?= $event['event_name'] ?>
-            </h2>
+            <div class="d-flex justify-content-between align-items-center gap-2 flex-wrap">
+                <button class="btn btn-secondary" onclick="history.back()"><i class="fa-solid fa-arrow-left"></i>
+                </button>
+                <h2>
+                    <?= $event['event_name'] ?>
+                </h2>
+                <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
+            </div>
             <hr>
             <div class="pb-2">
                 <span class="fw-bold">Organisateur:</span> <?= $event['organizer'] ?>

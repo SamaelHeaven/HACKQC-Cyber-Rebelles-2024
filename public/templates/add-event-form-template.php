@@ -113,13 +113,13 @@ $invalidCss = "is-invalid";
                     ?>
                     <div class="alert alert-danger mb-0" role="alert">
                         <p class="text-center m-0"><i
-                                    class="fa-solid fa-circle-exclamation pe-3"></i><?= $errorMessage ?></p>
+                                    class="fa-solid fa-circle-exclamation pe-2"></i><?= $errorMessage ?></p>
                     </div>
                     <?php
                 } else if ($success) {
                     ?>
                     <div class="alert alert-success mb-0" role="alert">
-                        <p class="text-center m-0"><i class="fa-regular fa-circle-check pe-3"></i>
+                        <p class="text-center m-0"><i class="fa-regular fa-circle-check pe-2"></i>
                             L'événement a été ajouté avec succès
                         </p>
                     </div>

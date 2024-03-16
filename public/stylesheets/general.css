@@ -94,14 +94,16 @@ h6 {
     z-index: 1000;
 }
 
-.sport-terrain-legend {
+.sport-terrain-legend,
+.cycle-path-legend {
     width: 1rem;
     height: 1rem;
+}
+
+.sport-terrain-legend {
     background: #358acd;
 }
 
 .cycle-path-legend {
-    width: 1rem;
-    height: 1rem;
     background: #008000;
 }

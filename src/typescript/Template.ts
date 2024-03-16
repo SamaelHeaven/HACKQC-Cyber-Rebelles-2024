@@ -71,7 +71,7 @@ export class Template {
         }
         if (events.length === 0) {
             result += `
-                <div class="alert alert-info mt-3 on-top" role="alert">
+                <div class="alert alert-info mt-3 on-top text-center" role="alert">
                     Aucun événements n'est associé à ce terrain
                 </div>
             `

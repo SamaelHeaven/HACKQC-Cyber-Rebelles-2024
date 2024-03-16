@@ -28,6 +28,8 @@ CREATE TABLE event
     end_time         TIME
 );
 
+CREATE INDEX idx_event_sport_terrain_id ON event (sport_terrain_id);
+
 CREATE TABLE cycle_path
 (
     id               SERIAL PRIMARY KEY,

@@ -59,12 +59,12 @@ $cyclePaths = DatabaseService::query("SELECT * FROM cycle_path");
     $i = 0;
     foreach ($sportTerrains as $sportTerrain) {
         $events = DatabaseService::query("SELECT * FROM event WHERE sport_terrain_id = " . $sportTerrain['id']);
-        echo "let marker" . $i . " = L.marker([" . $sportTerrain['latitude'] . "," . $sportTerrain['longitude'] . "]).addTo(markers);\n";
-        echo "marker" . $i . ".bindPopup(\"" . $sportTerrain['type'] . "\");\n";
+        echo "let marker" . $i . " = L.marker([" . $sportTerrain['latitude'] . "," . $sportTerrain['longitude'] . "]).addTo(markers);";
+        echo "marker" . $i . ".bindPopup(\"" . $sportTerrain['type'] . "\");";
         if (count($events) > 0) {
-            echo "L.marker([" . $sportTerrain['latitude'] . "," . $sportTerrain['longitude'] . "], {icon: L.divIcon({className: 'custom-icon', html: '<div class=\"bg-danger text-center rounded-circle text-white border border-black border-2 fw-bold\">" . count($events) . "</div>', iconAnchor: [-5, 50], iconSize: [20, 20]})}).addTo(numberMarkers);\n";
+            echo "L.marker([" . $sportTerrain['latitude'] . "," . $sportTerrain['longitude'] . "], {icon: L.divIcon({className: 'custom-icon', html: '<div class=\"bg-danger text-center rounded-circle text-white border border-black border-2 fw-bold\">" . count($events) . "</div>', iconAnchor: [-5, 50], iconSize: [20, 20]})}).addTo(numberMarkers);";
         }
-        echo "marker" . $i . ".on('click', function (e) { WorldMap.onMarkerClick(" . $sportTerrain['id'] . ") });\n";
+        echo "marker" . $i . ".on('click', e => { WorldMap.onMarkerClick(" . $sportTerrain['id'] . ") });";
         $i++;
     }
 
@@ -75,21 +75,10 @@ $cyclePaths = DatabaseService::query("SELECT * FROM cycle_path");
             'geometry' => [
                 'type' => $cyclePath['type'],
                 'coordinates' => $coordinates
-            ],
-            'properties' => [
-                'color' => 'green',
-                'weight' => 3
             ]
         ];
         $geoJson = json_encode($geoJsonFeature);
-        echo "L.geoJSON($geoJson, {
-            style: function(feature) {
-                return {
-                    color: feature.properties.color,
-                    weight: feature.properties.weight
-                };
-            }
-        }).addTo(map);\n";
+        echo "L.geoJSON($geoJson, { style: function(feature) { return { color: \"green\", weight: 3 }; } }).addTo(map);";
     }
 
     ?>

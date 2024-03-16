@@ -19,39 +19,44 @@ $success ??= false;
 $validDate ??= false;
 $validTime ??= false;
 
-if (!($organizer === "" ||
-    $eventName === "" ||
-    $description === "" ||
-    $startDate === "" ||
-    $endDate === "" ||
-    $startTime === "" ||
-    $endTime === "")) {
+if ($detectError) {
 
-    if ($startDate <= $endDate) {
+    if ($endDate != "" && $startDate != "" && $startDate <= $endDate) {
         $validDate = true;
-        if (!($startDate === $endDate && $startTime >= $endTime)) {
-            $validTime = true;
-            DatabaseService::query("INSERT INTO event (sport_terrain_id, organizer, event_name, description, start_date, end_date, start_time, end_time) VALUES ('" . htmlspecialchars(DatabaseService::escapeString($terrainId)) . "','" . htmlspecialchars(DatabaseService::escapeString($organizer)) . "','" . htmlspecialchars(DatabaseService::escapeString($eventName)) . "','" . htmlspecialchars(DatabaseService::escapeString($description)) . "','" . htmlspecialchars(DatabaseService::escapeString($startDate)) . "','" . htmlspecialchars(DatabaseService::escapeString($endDate)) . "','" . htmlspecialchars(DatabaseService::escapeString($startTime)) . "','" . htmlspecialchars(DatabaseService::escapeString($endTime)) . "')");
-            $success = true;
-            $organizer = "";
-            $eventName = "";
-            $description = "";
-            $startDate = "";
-            $endDate = "";
-            $startTime = "";
-            $endTime = "";
-        } else {
-            $errorMessage = "L'événement ne peut pas se terminer avant d'avoir commencé";
-        }
     } else {
         $errorMessage = "La date de fin ne peut pas être avant la date de début";
     }
 
-} else {
-    if ($detectError) {
+    if ($validDate && $endTime != "" && $startTime != "" && !($startDate === $endDate && $startTime >= $endTime)) {
+        $validTime = true;
+    } else {
+        $errorMessage = "L'événement ne peut pas se terminer avant d'avoir commencé";
+    }
+
+
+    if ($organizer === "" ||
+        $eventName === "" ||
+        $description === "" ||
+        $startDate === "" ||
+        $endDate === "" ||
+        $startTime === "" ||
+        $endTime === "") {
         $errorMessage = "Un ou plusieurs champs n'ont pas été rempli";
     }
+
+    if ($errorMessage == "") {
+        DatabaseService::query("INSERT INTO event (sport_terrain_id, organizer, event_name, description, start_date, end_date, start_time, end_time) VALUES ('" . htmlspecialchars(DatabaseService::escapeString($terrainId)) . "','" . htmlspecialchars(DatabaseService::escapeString($organizer)) . "','" . htmlspecialchars(DatabaseService::escapeString($eventName)) . "','" . htmlspecialchars(DatabaseService::escapeString($description)) . "','" . htmlspecialchars(DatabaseService::escapeString($startDate)) . "','" . htmlspecialchars(DatabaseService::escapeString($endDate)) . "','" . htmlspecialchars(DatabaseService::escapeString($startTime)) . "','" . htmlspecialchars(DatabaseService::escapeString($endTime)) . "')");
+        $success = true;
+        $organizer = "";
+        $eventName = "";
+        $description = "";
+        $startDate = "";
+        $endDate = "";
+        $startTime = "";
+        $endTime = "";
+    }
 }
+
 $validCss = "is-valid";
 $invalidCss = "is-invalid";
 ?>

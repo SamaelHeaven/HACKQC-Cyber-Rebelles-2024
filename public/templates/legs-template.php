@@ -26,7 +26,7 @@ $insideMain ??= true;
             <div class="pt-4 mx-auto d-flex flex-wrap info-footer">
                 <div>
                     <h2 class="mb-4 fs-6 footer-text fw-light">NOUS JOINDRE</h2>
-                    <p><em class="fa-solid fa-envelope me-2"></em>cyberebellesinfo@gmail.com</p>
+                    <p><em class="fa-solid fa-envelope me-2"></em>cyberrebellesinfo@gmail.com</p>
                 </div>
                 <div class="social-networks">
                     <h2 class="mb-3 fs-6 footer-text fw-light">NOUS SUIVRE</h2>

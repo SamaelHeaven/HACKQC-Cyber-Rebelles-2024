@@ -31,7 +31,7 @@ if (!($organizer == "" ||
         $validDate = true;
         if (!($startDate == $endDate && $startTime >= $endTime)) {
             $validTime = true;
-            DatabaseService::query("INSERT INTO event (sport_terrain_id, organizer, event_name, description, start_date, end_date, start_time, end_time) VALUES ('" . DatabaseService::escapeString($terrainId) . "','" . DatabaseService::escapeString($organizer) . "','" . DatabaseService::escapeString($eventName) . "','" . DatabaseService::escapeString($description) . "','" . DatabaseService::escapeString($startDate) . "','" . DatabaseService::escapeString($endDate) . "','" . DatabaseService::escapeString($startTime) . "','" . DatabaseService::escapeString($endTime) . "')");
+            DatabaseService::query("INSERT INTO event (sport_terrain_id, organizer, event_name, description, start_date, end_date, start_time, end_time) VALUES ('" . htmlspecialchars(DatabaseService::escapeString($terrainId)) . "','" . htmlspecialchars(DatabaseService::escapeString($organizer)) . "','" . htmlspecialchars(DatabaseService::escapeString($eventName)) . "','" . htmlspecialchars(DatabaseService::escapeString($description)) . "','" . htmlspecialchars(DatabaseService::escapeString($startDate)) . "','" . htmlspecialchars(DatabaseService::escapeString($endDate)) . "','" . htmlspecialchars(DatabaseService::escapeString($startTime)) . "','" . htmlspecialchars(DatabaseService::escapeString($endTime)) . "')");
             $success = true;
             $organizer = "";
             $eventName = "";

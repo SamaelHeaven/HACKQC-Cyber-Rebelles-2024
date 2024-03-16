@@ -44,13 +44,13 @@ if (isset($_POST['organizer']) &&
     isset($_POST['startTime']) &&
     isset($_POST['endTime'])) {
 
-    $organizer = DatabaseService::escapeString($_POST['organizer']);
-    $eventName = DatabaseService::escapeString($_POST['eventName']);
-    $description = DatabaseService::escapeString($_POST['description']);
-    $startDate = DatabaseService::escapeString($_POST['startDate']);
-    $endDate = DatabaseService::escapeString($_POST['endDate']);
-    $startTime = DatabaseService::escapeString($_POST['startTime']);
-    $endTime = DatabaseService::escapeString($_POST['endTime']);
+    $organizer = htmlspecialchars(DatabaseService::escapeString($_POST['organizer']));
+    $eventName = htmlspecialchars(DatabaseService::escapeString($_POST['eventName']));
+    $description = htmlspecialchars(DatabaseService::escapeString($_POST['description']));
+    $startDate = htmlspecialchars(DatabaseService::escapeString($_POST['startDate']));
+    $endDate = htmlspecialchars(DatabaseService::escapeString($_POST['endDate']));
+    $startTime = htmlspecialchars(DatabaseService::escapeString($_POST['startTime']));
+    $endTime = htmlspecialchars(DatabaseService::escapeString($_POST['endTime']));
 
     $formTemplate->setVariable('organizer', $organizer);
     $formTemplate->setVariable('eventName', $eventName);

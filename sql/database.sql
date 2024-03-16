@@ -3,11 +3,12 @@ search_path TO public;
 
 CREATE TABLE sport_terrain
 (
-    id                INT PRIMARY KEY,
+    id                SERIAL PRIMARY KEY,
     terrain           TEXT,
     type              TEXT,
     flooring          TEXT,
     city              TEXT,
+    address           VARCHAR,
     creation_date     DATE,
     modification_date TIMESTAMP,
     longitude         NUMERIC,

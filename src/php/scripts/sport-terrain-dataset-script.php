@@ -1,5 +1,13 @@
 <?php
 
+function titleCase($string): string
+{
+    $firstChar = mb_substr($string, 0, 1);
+    $restChars = mb_substr($string, 1);
+    $restCharsLower = mb_strtolower($restChars);
+    return $firstChar . $restCharsLower;
+}
+
 require_once($_SERVER["DOCUMENT_ROOT"] . "/src/php/services/DatabaseService.php");
 
 $jsonData = file_get_contents($_SERVER["DOCUMENT_ROOT"] . "/datasets/terrain_sportif.json");
@@ -12,10 +20,9 @@ foreach ($sportTerrains as $terrain) {
 
     $query = "
         INSERT INTO sport_terrain 
-            (terrain, id, type, flooring, city, creation_date, modification_date, longitude, latitude) 
+            (terrain, type, flooring, city, creation_date, modification_date, longitude, latitude) 
         VALUES (
             '{$terrain['json_featuretype']}',
-            {$terrain['ID']},
             '{$terrain['TYPE']}',
             '{$terrain['REVETEMENT_SOL']}',
             '{$terrain['MUNICIPALITE']}',
@@ -23,6 +30,51 @@ foreach ($sportTerrains as $terrain) {
             '$dateModification', 
             {$terrain['LONGITUDE']},
             {$terrain['LATITUDE']}
+        )";
+
+    DatabaseService::query($query);
+}
+
+$jsonData = file_get_contents($_SERVER["DOCUMENT_ROOT"] . "/datasets/sagarenastade.json");
+$sportTerrains = json_decode($jsonData, true);
+
+foreach ($sportTerrains['features'] as $terrain) {
+    $properties = $terrain['properties'];
+    $coordinates = $terrain['geometry']['coordinates'];
+    $address = DatabaseService::escapeString($properties['adresse_texte']);
+
+    $query = "
+        INSERT INTO sport_terrain 
+            (terrain, type, city, address, longitude, latitude) 
+        VALUES (
+            'Terrain sportif',
+            '{$properties['type_instal']}',
+            'Saguenay',
+            '$address',
+            '$coordinates[0]',
+            '$coordinates[1]'
+        )";
+
+    DatabaseService::query($query);
+}
+
+$jsonData = file_get_contents($_SERVER["DOCUMENT_ROOT"] . "/datasets/saginfrastructuresportiverecreativeexterieure.json");
+$sportTerrains = json_decode($jsonData, true);
+
+foreach ($sportTerrains['features'] as $terrain) {
+    $properties = $terrain['properties'];
+    $coordinates = $terrain['geometry']['coordinates'];
+
+    $query = "
+        INSERT INTO sport_terrain 
+            (terrain, type, city, address, longitude, latitude) 
+        VALUES (
+            'Terrain sportif',
+            '" . titleCase(DatabaseService::escapeString($properties['TYPE_INSTALLATION'])) . "',
+            'Saguenay',
+            '" . titleCase(trim(DatabaseService::escapeString($properties['PARC'])))  ."',
+            '$coordinates[0]',
+            '$coordinates[1]'
         )";
 
     DatabaseService::query($query);

@@ -1,0 +1,159 @@
+{
+	"type" : "FeatureCollection",
+	"name" : "SAG_ArenaStade",
+	"features" : [
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ -70.8806936479, 48.3367088288 ]
+			},
+			"properties" : {
+				"arrondissement" : "La Baie",
+				"x" : "-70.88069364794345",
+				"y" : "48.336708828799516",
+				"nbr_places" : "300",
+				"nom" : "Aréna de La Baie",
+				"type_instal" : "Aréna",
+				"id" : 60092,
+				"adresse_texte" : "995 Rue Aimé-Gravel"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ -71.074509313, 48.4480644734 ]
+			},
+			"properties" : {
+				"arrondissement" : "Chicoutimi",
+				"x" : "-71.0745093129514",
+				"y" : "48.448064473363885",
+				"nbr_places" : "800",
+				"nom" : "Aréna Marina-Larouche",
+				"type_instal" : "Aréna",
+				"id" : 46242,
+				"adresse_texte" : "630 Rue de l'Aréna"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ -70.8810217066, 48.3375093077 ]
+			},
+			"properties" : {
+				"arrondissement" : "La Baie",
+				"x" : "-70.88102170662411",
+				"y" : "48.3375093077462",
+				"nbr_places" : "1000",
+				"nom" : "Centre des sports Jean-Claude-Tremblay",
+				"type_instal" : "Aréna",
+				"id" : 34451,
+				"adresse_texte" : "990 - 1000 Rue Aimé-Gravel"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ -71.0599940323, 48.4197567794 ]
+			},
+			"properties" : {
+				"arrondissement" : "Chicoutimi",
+				"x" : "-71.05999403231264",
+				"y" : "48.41975677936257",
+				"nbr_places" : "3759",
+				"nom" : "Centre Georges-Vézina",
+				"type_instal" : "Aréna",
+				"id" : 46353,
+				"adresse_texte" : "643 Rue Bégin"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ -71.0741961921, 48.3368545061 ]
+			},
+			"properties" : {
+				"arrondissement" : "Chicoutimi",
+				"x" : "-71.07419619211262",
+				"y" : "48.336854506143894",
+				"nbr_places" : "",
+				"nom" : "Centre Paul-Étienne-Simard",
+				"type_instal" : "Aréna",
+				"id" : 54632,
+				"adresse_texte" : "4667 Chemin de l'Église"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ -71.1858255192, 48.4267154109 ]
+			},
+			"properties" : {
+				"arrondissement" : "Jonquière",
+				"x" : "-71.18582551921169",
+				"y" : "48.426715410892015",
+				"nbr_places" : "850",
+				"nom" : "Foyer des loisirs et de la culture",
+				"type_instal" : "Aréna",
+				"id" : 46361,
+				"adresse_texte" : "1910 Rue du Centre"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ -71.2528907988, 48.4089717728 ]
+			},
+			"properties" : {
+				"arrondissement" : "Jonquière",
+				"x" : "-71.25289079884882",
+				"y" : "48.408971772779985",
+				"nbr_places" : "2800",
+				"nom" : "Palais des sports",
+				"type_instal" : "Aréna",
+				"id" : 46320,
+				"adresse_texte" : "2315 Rue Pelletier"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ -71.0591558897, 48.4185483535 ]
+			},
+			"properties" : {
+				"arrondissement" : "Chicoutimi",
+				"x" : "-71.05915588971972",
+				"y" : "48.418548353512335",
+				"nbr_places" : "200",
+				"nom" : "Pavillon de l'Agriculture",
+				"type_instal" : "Aréna",
+				"id" : 46244,
+				"adresse_texte" : "350 Boulevard de l'Université Est"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ -71.2281159608, 48.4259521761 ]
+			},
+			"properties" : {
+				"arrondissement" : "Jonquière",
+				"x" : "-71.22811596082033",
+				"y" : "48.42595217608181",
+				"nbr_places" : "500",
+				"nom" : "Pavillon sportif de Kénogami",
+				"type_instal" : "Aréna",
+				"id" : 46228,
+				"adresse_texte" : "1935 Rue Bourassa"
+			}
+		}
+	]
+}

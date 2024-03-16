@@ -18,3 +18,20 @@ foreach ($cyclePaths as $cyclePath) {
 
     DatabaseService::query($query);
 }
+
+$jsonData = file_get_contents($_SERVER["DOCUMENT_ROOT"] . "/datasets/sag_pistecyclable.json");
+$cyclePaths = json_decode($jsonData, true);
+
+foreach ($cyclePaths['features'] as $cyclePath) {
+    $coordinates = json_encode($cyclePath['geometry']['coordinates']);
+    $type = $cyclePath['geometry']['type'];
+    $query = "
+        INSERT INTO cycle_path 
+            (type, coordinates_json) 
+        VALUES (
+            '$type',
+            '$coordinates'
+        )";
+
+    DatabaseService::query($query);
+}

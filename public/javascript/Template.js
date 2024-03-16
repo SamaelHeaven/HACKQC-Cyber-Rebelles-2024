@@ -25,14 +25,20 @@ export class Template {
                         <th scope="row">Type de terrain</th>
                         <td>${sportTerrain.terrain} - ${sportTerrain.type}</td>
                     </tr>
+                    ${(sportTerrain.flooring === null ? "" : `        
                     <tr>
                         <th scope="row">Revêtement du sol</th>
                         <td>${sportTerrain.flooring}</td>
-                    </tr>
+                    </tr>`)}
                     <tr>
                         <th scope="row">Municipalité</th>
                         <td>${sportTerrain.city}</td>
                     </tr>
+                    ${(sportTerrain.address === null ? "" : `        
+                    <tr>
+                        <th scope="row">Adresse</th>
+                        <td>${sportTerrain.address}</td>
+                    </tr>`)}
                     <tr>
                         <th scope="row">Longitude</th>
                         <td>${sportTerrain.longitude}</td>
@@ -41,14 +47,16 @@ export class Template {
                         <th scope="row">Latitude</th>
                         <td>${sportTerrain.latitude}</td>
                     </tr>
+                    ${(sportTerrain.creation_date === null ? "" : `        
                     <tr>
                         <th scope="row">Date de création</th>
                         <td>${sportTerrain.creation_date}</td>
-                    </tr>
+                    </tr>`)}
+                    ${(sportTerrain.modification_date === null ? "" : `        
                     <tr>
                         <th scope="row">Date de modification</th>
                         <td>${sportTerrain.modification_date.toString().substring(0, sportTerrain.modification_date.toString().length - 3)}</td>
-                    </tr>
+                    </tr>`)}
                 </tbody>
             </table>
         `;

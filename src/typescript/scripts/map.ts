@@ -12,15 +12,14 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(map);
 
-const markers = L.layerGroup().addTo(map);
-const numberMarkers = L.layerGroup().addTo(map);
-const icon = new L.Icon.Default();
-icon.options.shadowSize = [0, 0];
-
 loadSportTerrains().then();
 loadCyclePaths().then();
 
 async function loadSportTerrains(): Promise<void> {
+    const markers = L.layerGroup().addTo(map);
+    const numberMarkers = L.layerGroup().addTo(map);
+    const icon = new L.Icon.Default();
+    icon.options.shadowSize = [0, 0];
     for (const sportTerrain of (await SportTerrainService.getList())) {
         const marker = new L.Marker([sportTerrain.latitude, sportTerrain.longitude], {icon: icon}).addTo(markers);
         marker.bindPopup(sportTerrain.type);

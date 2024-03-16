@@ -3,6 +3,9 @@ import { Template } from "./Template.js";
 import { EventService } from "./EventService.js";
 document.body.addEventListener('click', (event) => {
     let target = event.target;
+    handleNavLinkClick(target);
+});
+function handleNavLinkClick(target) {
     let navLink = target.closest('[data-nav-link]');
     if (!navLink) {
         return;
@@ -23,4 +26,4 @@ document.body.addEventListener('click', (event) => {
             });
         }
     });
-});
+}

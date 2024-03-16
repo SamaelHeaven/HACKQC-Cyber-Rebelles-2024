@@ -4,6 +4,10 @@ import {EventService} from "./EventService.js";
 
 document.body.addEventListener('click', (event) => {
     let target = event.target as HTMLElement;
+    handleNavLinkClick(target);
+});
+
+function handleNavLinkClick(target: HTMLElement) {
     let navLink = target.closest('[data-nav-link]') as HTMLElement;
     if (!navLink) {
         return;
@@ -24,4 +28,4 @@ document.body.addEventListener('click', (event) => {
             })
         }
     });
-})
+}

@@ -1327,8 +1327,8 @@ VALUES (332, 'Terrain sportif', 'Piscine', null, 'Saguenay', 'Parc rosaire-gauth
         48.4175800001);
 INSERT INTO public.sport_terrain (id, terrain, type, flooring, city, parc, address, creation_date, modification_date,
                                   longitude, latitude)
-VALUES (333, 'Terrain sportif', '', null, 'Saguenay', 'Parc rosaire-gauthier', null, null, null, -71.0641300001,
-        48.4183099998);
+VALUES (333, 'Terrain sportif', 'Parc d''exercices', null, 'Saguenay', 'Parc rosaire-gauthier', null, null, null,
+        -71.0641300001, 48.4183099998);
 INSERT INTO public.sport_terrain (id, terrain, type, flooring, city, parc, address, creation_date, modification_date,
                                   longitude, latitude)
 VALUES (334, 'Terrain sportif', 'Anneau de glace', null, 'Saguenay', 'Parc rosaire-gauthier', null, null, null,

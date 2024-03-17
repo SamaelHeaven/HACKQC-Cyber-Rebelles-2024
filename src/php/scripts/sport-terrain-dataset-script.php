@@ -66,15 +66,21 @@ foreach ($sportTerrains['features'] as $terrain) {
         continue;
     }
     $coordinates = $terrain['geometry']['coordinates'];
+    $parc = titleCase(trim(DatabaseService::escapeString($properties['PARC'])));
+    $type = trim(titleCase(DatabaseService::escapeString(explode(" -", $properties['DESCRIPTION'])[0])));
+
+    if ($type === "") {
+        $type = titleCase(DatabaseService::escapeString($properties['TYPE_INSTALLATION']));
+    }
 
     $query = "
         INSERT INTO sport_terrain 
             (terrain, type, city, parc, longitude, latitude) 
         VALUES (
             'Terrain sportif',
-            '" . titleCase(DatabaseService::escapeString(explode(" -", $properties['DESCRIPTION'])[0])) . "',
+            '$type',
             'Saguenay',
-            '" . titleCase(trim(DatabaseService::escapeString($properties['PARC']))) . "',
+            '$parc',
             '$coordinates[0]',
             '$coordinates[1]'
         )";

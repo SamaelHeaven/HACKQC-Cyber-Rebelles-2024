@@ -34,10 +34,8 @@ const markers = L.markerClusterGroup({
 });
 
 async function loadSportTerrains(): Promise<void> {
-    const icon = new L.Icon.Default();
-    icon.options.shadowSize = [0, 0];
     for (const sportTerrain of (await SportTerrainService.getList())) {
-        const marker = new L.Marker([sportTerrain.latitude, sportTerrain.longitude], {icon: icon});
+        const marker = new L.Marker([sportTerrain.latitude, sportTerrain.longitude]);
         marker.bindPopup(sportTerrain.type);
         marker.on('click', (): void => {
             onMarkerClick(Number(sportTerrain.id))

@@ -29,7 +29,8 @@ nom de notre projet. Ensuite, une grande partie de la page comprend une carte de
 différentes activités dans la région. À droite de cette carte se trouvent les informations précises de l’activité
 sélectionnée. Enfin, en pied de page, il y a des informations générales, comme tout pied de page d’un site internet
 officiel.
-##Nous avons utilisé ces données provenant de Données Québec##
+
+## Nous avons utilisé ces données provenant de Données Québec
 
 **Terrain sportif de Repentigny:**
 https://www.donneesquebec.ca/recherche/dataset/terrain-sportif

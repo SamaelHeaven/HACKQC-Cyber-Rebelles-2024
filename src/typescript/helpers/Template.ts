@@ -69,22 +69,26 @@ export class Template {
     }
 
     public static getEventsPanel(sportTerrain: SportTerrain, events: Event[]): string {
+        function formatString(str: string): string {
+            return he.decode(str.replace(/&amp;#039;&amp;#039;/g, "'"));
+        }
+
         let result: string = "<div class='mb-3'>";
         result += `<a class="btn btn-secondary on-top w-100 fs-4 fw-bold" href="/public/views/add-event/?terrainId=${sportTerrain.id}"><i class="fa-solid fa-plus"></i> Ajouter un événement</a>`;
         for (const event of events) {
             result += `
-                <a class="border rounded p-3 text-decoration-none text-black border border-2 mt-3 w-100 fw-bold d-flex justify-content-between align-items-center gap-3 flex-wrap event-button on-top bg-white" href="/public/views/event/?id=${event.id}">
-                    <span>${he.decode(event.organizer)} - ${he.decode(event.event_name)}</span>
-                    <span>${he.decode(event.start_date)}</span>
-                </a>
-            `;
+            <a class="border rounded p-3 text-decoration-none text-black border border-2 mt-3 w-100 fw-bold d-flex justify-content-between align-items-center gap-3 flex-wrap event-button on-top bg-white" href="/public/views/event/?id=${formatString(event.id)}">
+                <span>${formatString(event.organizer)} - ${formatString(event.event_name)}</span>
+                <span>${formatString(event.start_date.toString())}</span>
+            </a>
+        `;
         }
         if (events.length === 0) {
             result += `
-                <div class="alert alert-info mt-3 on-top text-center" role="alert">
-                    Aucun événements n'est associé à ce terrain
-                </div>
-            `
+            <div class="alert alert-info mt-3 on-top text-center" role="alert">
+                Aucun événement n'est associé à ce terrain
+            </div>
+        `;
         }
         result += "</div>";
         return result;

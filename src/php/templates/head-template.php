@@ -30,6 +30,7 @@ $currentPage ??= CurrentPage::None;
             integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
             crossorigin=""></script>
     <script src="https://kit.fontawesome.com/74353d55c6.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/he/1.2.0/he.js"></script>
     <script type="module" src="/public/javascript/scripts/app.js"></script>
     <link rel="icon" type="image/png" href="/public/images/fit-quest-logo.png">
     <title><?= $title ?></title>

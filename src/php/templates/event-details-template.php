@@ -45,7 +45,7 @@ $sportTerrain = $sportTerrain[0];
             <span class="fw-bold">Organisateur:</span> <?= formatString($event['organizer']) ?>
         </div>
         <div class="pb-2 text-break">
-            <span class="fw-bold">Date:</span><?= formatString($event['start_date']) ?>
+            <span class="fw-bold">Date:</span> <?= formatString($event['start_date']) ?>
             : <?= substr(formatString($event['start_time']), 0, 5) ?>
             à <?= formatString($event['start_date']) === formatString($event['end_date']) ? "" : formatString($event['end_date']) . " : " ?><?= substr(formatString($event['end_time']), 0, 5) ?>
         </div>

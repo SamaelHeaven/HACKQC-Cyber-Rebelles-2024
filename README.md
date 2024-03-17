@@ -21,7 +21,7 @@ supplémentaires sur celle-ci, tel que sa date, le lieu, etc. Lorsqu'on ajoute u
 avec les différentes informations à remplir pour l'ajout de l'événement. Rempli, il s'ajoute directement sur notre
 serveur.
 
-## Comment l’avons-nous construit ?
+## Comment l’avons-nous construit?
 
 Puisque nous sommes plus à l’aise avec le développement d’application web, nous avons pris la décision de faire un site
 web en PHP qui utilise une base de données SQL. L’entête de la page contient le logo, les onglets de navigation et le

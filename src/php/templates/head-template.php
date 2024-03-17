@@ -22,7 +22,8 @@ $currentPage ??= CurrentPage::None;
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
           integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
           crossorigin=""/>
-    <link rel="stylesheet" href="/public/stylesheets/styles.css">
+    <link rel="stylesheet" href="/public/stylesheets/vendor/leaflet/marker-cluster.css">
+    <link rel="stylesheet" href="/public/stylesheets/fit-quest/styles.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
             crossorigin="anonymous"></script>
@@ -31,6 +32,7 @@ $currentPage ??= CurrentPage::None;
             crossorigin=""></script>
     <script src="https://kit.fontawesome.com/74353d55c6.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/he/1.2.0/he.js"></script>
+    <script src="/public/javascript/vendor/leaflet/marker-cluster.js"></script>
     <script type="module" src="/public/javascript/scripts/app.js"></script>
     <link rel="icon" type="image/png" href="/public/images/fit-quest-logo.png">
     <title><?= $title ?></title>

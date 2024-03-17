@@ -17,29 +17,48 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 }).addTo(map);
 loadSportTerrains().then();
 loadCyclePaths().then();
+const markers = L.markerClusterGroup({
+    disableClusteringAtZoom: 13,
+    spiderfyOnMaxZoom: false,
+    showCoverageOnHover: false,
+    iconCreateFunction: function (cluster) {
+        let count = 0;
+        for (const marker of cluster.getAllChildMarkers()) {
+            if (marker.sportTerrain) {
+                count++;
+            }
+        }
+        return L.divIcon({
+            html: '<b>' + count + '</b>',
+            className: 'p-2 w-auto h-auto text-center rounded-circle map-cluster-icon border shadow',
+        });
+    }
+});
 function loadSportTerrains() {
     return __awaiter(this, void 0, void 0, function* () {
-        const markers = L.layerGroup().addTo(map);
-        const numberMarkers = L.layerGroup().addTo(map);
         const icon = new L.Icon.Default();
         icon.options.shadowSize = [0, 0];
         for (const sportTerrain of (yield SportTerrainService.getList())) {
-            const marker = new L.Marker([sportTerrain.latitude, sportTerrain.longitude], { icon: icon }).addTo(markers);
+            const marker = new L.Marker([sportTerrain.latitude, sportTerrain.longitude], { icon: icon });
             marker.bindPopup(sportTerrain.type);
             marker.on('click', () => {
                 onMarkerClick(Number(sportTerrain.id));
             });
+            marker.sportTerrain = true;
             if (Number(sportTerrain.nb_events) > 0) {
-                L.marker([sportTerrain.latitude, sportTerrain.longitude], {
+                const numberMarker = L.marker([sportTerrain.latitude, sportTerrain.longitude], {
                     icon: L.divIcon({
                         className: 'custom-icon',
                         html: `<div class=\"bg-danger text-center rounded-circle text-white border border-black border-2 fw-bold\">${sportTerrain.nb_events}</div>`,
                         iconAnchor: [-5, 50],
                         iconSize: [20, 20]
                     })
-                }).addTo(numberMarkers);
+                });
+                markers.addLayer(numberMarker);
             }
+            markers.addLayer(marker);
         }
+        map.addLayer(markers);
     });
 }
 function loadCyclePaths() {

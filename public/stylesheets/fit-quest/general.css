@@ -101,7 +101,8 @@ h6 {
     height: 1rem;
 }
 
-.sport-terrain-legend {
+.sport-terrain-legend,
+.map-cluster-icon {
     background: #358acd;
 }
 

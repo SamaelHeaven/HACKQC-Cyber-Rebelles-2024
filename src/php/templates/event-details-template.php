@@ -30,7 +30,7 @@ $sportTerrain = $sportTerrain[0];
             <button class="btn btn-secondary" onclick="history.back()">
                 <i class="fa-solid fa-arrow-left"></i>
             </button>
-            <h2>
+            <h2 class="text-break">
                 <?= formatString($event['event_name']) ?>
             </h2>
             <form action="/public/views/event/" method="post">
@@ -41,15 +41,15 @@ $sportTerrain = $sportTerrain[0];
             </form>
         </div>
         <hr>
-        <div class="pb-2">
+        <div class="pb-2 text-break">
             <span class="fw-bold">Organisateur:</span> <?= formatString($event['organizer']) ?>
         </div>
-        <div class="pb-2">
+        <div class="pb-2 text-break">
             <span class="fw-bold">Date:</span> Du <?= formatString($event['start_date']) ?>
             : <?= substr(formatString($event['start_time']), 0, 5) ?>
             à <?= formatString($event['start_date']) === formatString($event['end_date']) ? "" : formatString($event['end_date']) . " : " ?><?= substr(formatString($event['end_time']), 0, 5) ?>
         </div>
-        <p>
+        <p class="text-break">
             <span class="fw-bold">Description:</span> <?= formatString($event['description']) ?>
         </p>
         <table class="table table-responsive table-striped on-top">

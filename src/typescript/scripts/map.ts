@@ -16,7 +16,7 @@ loadSportTerrains().then();
 loadCyclePaths().then();
 
 const markers = L.markerClusterGroup({
-    disableClusteringAtZoom: 13,
+    disableClusteringAtZoom: 12,
     spiderfyOnMaxZoom: false,
     showCoverageOnHover: false,
     iconCreateFunction: function (cluster) {

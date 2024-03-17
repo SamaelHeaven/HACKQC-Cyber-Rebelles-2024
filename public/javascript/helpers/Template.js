@@ -39,6 +39,11 @@ export class Template {
                         <th scope="row">Adresse</th>
                         <td>${sportTerrain.address}</td>
                     </tr>`)}
+                    ${(sportTerrain.parc === null ? "" : `        
+                    <tr>
+                        <th scope="row">Parc</th>
+                        <td>${sportTerrain.parc}</td>
+                    </tr>`)}
                     <tr>
                         <th scope="row">Longitude</th>
                         <td>${sportTerrain.longitude}</td>

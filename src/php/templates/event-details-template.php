@@ -75,6 +75,12 @@ $sportTerrain = $sportTerrain[0];
                     <td><?php echo formatString($sportTerrain['address']) ?></td>
                 </tr>
             <?php endif; ?>
+            <?php if ($sportTerrain['parc'] !== null): ?>
+                <tr>
+                    <th scope="row">Parc</th>
+                    <td><?php echo formatString($sportTerrain['parc']) ?></td>
+                </tr>
+            <?php endif; ?>
             <tr>
                 <th scope="row">Longitude</th>
                 <td><?php echo formatString($sportTerrain['longitude']) ?></td>

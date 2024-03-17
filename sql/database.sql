@@ -8,6 +8,7 @@ CREATE TABLE sport_terrain
     type              TEXT,
     flooring          TEXT,
     city              TEXT,
+    parc              VARCHAR,
     address           VARCHAR,
     creation_date     DATE,
     modification_date TIMESTAMP,

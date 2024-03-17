@@ -18,7 +18,7 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 loadSportTerrains().then();
 loadCyclePaths().then();
 const markers = L.markerClusterGroup({
-    disableClusteringAtZoom: 13,
+    disableClusteringAtZoom: 12,
     spiderfyOnMaxZoom: false,
     showCoverageOnHover: false,
     iconCreateFunction: function (cluster) {

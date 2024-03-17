@@ -15,7 +15,6 @@ $sportTerrains = json_decode($jsonData, true);
 
 foreach ($sportTerrains as $terrain) {
     $dateCreation = substr($terrain['DATE_CREATION'], 0, 4) . '-' . substr($terrain['DATE_CREATION'], 4, 2) . '-' . substr($terrain['DATE_CREATION'], 6, 2);
-
     $dateModification = substr($terrain['DATE_MODIFICATION'], 0, 4) . '-' . substr($terrain['DATE_MODIFICATION'], 4, 2) . '-' . substr($terrain['DATE_MODIFICATION'], 6, 2) . ' ' . substr($terrain['DATE_MODIFICATION'], 8, 2) . ':' . substr($terrain['DATE_MODIFICATION'], 10, 2) . ':' . substr($terrain['DATE_MODIFICATION'], 12, 2);
 
     $query = "
@@ -63,14 +62,17 @@ $sportTerrains = json_decode($jsonData, true);
 
 foreach ($sportTerrains['features'] as $terrain) {
     $properties = $terrain['properties'];
+    if ($properties['TYPE_INSTALLATION'] === "MODULE DE JEUX" || $properties['TYPE_INSTALLATION'] === "AIRE DE JEUX") {
+        continue;
+    }
     $coordinates = $terrain['geometry']['coordinates'];
 
     $query = "
         INSERT INTO sport_terrain 
-            (terrain, type, city, address, longitude, latitude) 
+            (terrain, type, city, parc, longitude, latitude) 
         VALUES (
             'Terrain sportif',
-            '" . titleCase(DatabaseService::escapeString($properties['TYPE_INSTALLATION'])) . "',
+            '" . titleCase(DatabaseService::escapeString(explode(" -", $properties['DESCRIPTION'])[0])) . "',
             'Saguenay',
             '" . titleCase(trim(DatabaseService::escapeString($properties['PARC']))) . "',
             '$coordinates[0]',

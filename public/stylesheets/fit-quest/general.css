@@ -16,6 +16,7 @@ h6 {
 }
 
 .home-body {
+    min-height: 100vh;
     min-height: 100svh;
 }
 
@@ -43,6 +44,7 @@ h6 {
 
 .map-panel {
     position: relative;
+    max-height: 100vh;
     max-height: 100svh;
 }
 

@@ -22,6 +22,9 @@ $currentPage ??= CurrentPage::None;
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
           integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
           crossorigin=""/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+          integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
     <link rel="stylesheet" href="/stylesheets/vendor/leaflet/marker-cluster.css">
     <link rel="stylesheet" href="/stylesheets/fit-quest/styles.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
@@ -30,7 +33,6 @@ $currentPage ??= CurrentPage::None;
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
             integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
             crossorigin=""></script>
-    <script src="https://kit.fontawesome.com/74353d55c6.js" crossorigin="anonymous"></script>
     <script src="/javascript/vendor/leaflet/marker-cluster.js"></script>
     <script type="module" src="/javascript/main.js"></script>
     <link rel="icon" type="image/png" href="/images/fit-quest-logo.png">
@@ -40,7 +42,11 @@ $currentPage ??= CurrentPage::None;
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-PN72YDLFT7"></script>
 <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
     gtag('js', new Date());
 
     gtag('config', 'G-PN72YDLFT7');

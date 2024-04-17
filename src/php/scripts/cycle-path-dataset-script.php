@@ -1,8 +1,8 @@
 <?php
 
-require_once($_SERVER["DOCUMENT_ROOT"] . "/src/php/services/DatabaseService.php");
+require_once(dirname($_SERVER["DOCUMENT_ROOT"]) . "/src/php/services/DatabaseService.php");
 
-$jsonData = file_get_contents($_SERVER["DOCUMENT_ROOT"] . "/datasets/piste_cyclable.json");
+$jsonData = file_get_contents(dirname($_SERVER["DOCUMENT_ROOT"]) . "/datasets/piste_cyclable.json");
 $cyclePaths = json_decode($jsonData, true);
 
 foreach ($cyclePaths as $cyclePath) {
@@ -19,7 +19,7 @@ foreach ($cyclePaths as $cyclePath) {
     DatabaseService::query($query);
 }
 
-$jsonData = file_get_contents($_SERVER["DOCUMENT_ROOT"] . "/datasets/sag_pistecyclable.json");
+$jsonData = file_get_contents(dirname($_SERVER["DOCUMENT_ROOT"]) . "/datasets/sag_pistecyclable.json");
 $cyclePaths = json_decode($jsonData, true);
 
 foreach ($cyclePaths['features'] as $cyclePath) {

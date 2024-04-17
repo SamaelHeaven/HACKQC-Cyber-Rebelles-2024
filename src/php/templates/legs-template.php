@@ -4,7 +4,7 @@
  * bool $insideMain: If the footer is inside the main element
  */
 
-require_once $_SERVER["DOCUMENT_ROOT"] . "/src/php/models/CurrentPage.php";
+require_once dirname($_SERVER["DOCUMENT_ROOT"]) . "/src/php/models/CurrentPage.php";
 
 $insideMain ??= true;
 
@@ -15,10 +15,10 @@ $insideMain ??= true;
         <div class="d-flex footer-content">
             <div class="d-flex flex-column align-items-center">
                 <div class="pt-2 footer-logos d-flex">
-                    <a href="/public/views/home/index.php"><img src="/public/images/fit-quest-logo.png" alt="FitQuest"
+                    <a href="/views/home/index.php"><img src="/images/fit-quest-logo.png" alt="FitQuest"
                                                                 class="footer-logo"></a>
                     <a href="https://devpost.com/software/hackqc-2024" target="_blank"><img
-                                src="/public/images/cyber-rebelles-logo.png" alt="Cyber-Rebelles"
+                                src="/images/cyber-rebelles-logo.png" alt="Cyber-Rebelles"
                                 class="footer-logo"></a>
                 </div>
                 <div class="pt-3 copyright-text">© Cyber-Rebelles 2024</div>
@@ -34,7 +34,7 @@ $insideMain ??= true;
                     <a href="https://github.com/SamaelHeaven/HackQC-Cyber-Rebelles-2024" target="_blank"><em
                                 class="fa-brands fa-github"></em></a>
                     <a href="https://devpost.com/software/hackqc-2024" target="_blank"><img
-                                src="/public/images/devposticon.ico" alt="devpost-icon" class="devpost-icon"></a>
+                                src="/images/devposticon.ico" alt="devpost-icon" class="devpost-icon"></a>
                 </div>
             </div>
         </div>

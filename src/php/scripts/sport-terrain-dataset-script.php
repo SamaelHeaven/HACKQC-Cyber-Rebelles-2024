@@ -8,9 +8,9 @@ function titleCase($string): string
     return $firstChar . $restCharsLower;
 }
 
-require_once($_SERVER["DOCUMENT_ROOT"] . "/src/php/services/DatabaseService.php");
+require_once(dirname($_SERVER["DOCUMENT_ROOT"]) . "/src/php/services/DatabaseService.php");
 
-$jsonData = file_get_contents($_SERVER["DOCUMENT_ROOT"] . "/datasets/terrain_sportif.json");
+$jsonData = file_get_contents(dirname($_SERVER["DOCUMENT_ROOT"]) . "/datasets/terrain_sportif.json");
 $sportTerrains = json_decode($jsonData, true);
 
 foreach ($sportTerrains as $terrain) {
@@ -34,7 +34,7 @@ foreach ($sportTerrains as $terrain) {
     DatabaseService::query($query);
 }
 
-$jsonData = file_get_contents($_SERVER["DOCUMENT_ROOT"] . "/datasets/sagarenastade.json");
+$jsonData = file_get_contents(dirname($_SERVER["DOCUMENT_ROOT"]) . "/datasets/sagarenastade.json");
 $sportTerrains = json_decode($jsonData, true);
 
 foreach ($sportTerrains['features'] as $terrain) {
@@ -57,7 +57,7 @@ foreach ($sportTerrains['features'] as $terrain) {
     DatabaseService::query($query);
 }
 
-$jsonData = file_get_contents($_SERVER["DOCUMENT_ROOT"] . "/datasets/saginfrastructuresportiverecreativeexterieure.json");
+$jsonData = file_get_contents(dirname($_SERVER["DOCUMENT_ROOT"]) . "/datasets/saginfrastructuresportiverecreativeexterieure.json");
 $sportTerrains = json_decode($jsonData, true);
 
 foreach ($sportTerrains['features'] as $terrain) {

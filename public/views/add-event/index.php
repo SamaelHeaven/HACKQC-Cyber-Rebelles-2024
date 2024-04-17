@@ -1,15 +1,15 @@
 <?php
 
-require_once($_SERVER["DOCUMENT_ROOT"] . "/src/php/models/Template.php");
-require_once $_SERVER["DOCUMENT_ROOT"] . "/src/php/models/CurrentPage.php";
-require_once($_SERVER["DOCUMENT_ROOT"] . "/src/php/services/DatabaseService.php");
+require_once(dirname($_SERVER["DOCUMENT_ROOT"]) . "/src/php/models/Template.php");
+require_once dirname($_SERVER["DOCUMENT_ROOT"]) . "/src/php/models/CurrentPage.php";
+require_once(dirname($_SERVER["DOCUMENT_ROOT"]) . "/src/php/services/DatabaseService.php");
 
-$headTemplate = new Template($_SERVER["DOCUMENT_ROOT"] . "/src/php/templates/head-template.php");
+$headTemplate = new Template(dirname($_SERVER["DOCUMENT_ROOT"]) . "/src/php/templates/head-template.php");
 $headTemplate->setVariable("title", "FitQuest - Ajout d'événement");
 
-$formTemplate = new Template($_SERVER["DOCUMENT_ROOT"] . "/src/php/templates/add-event-form-template.php");
+$formTemplate = new Template(dirname($_SERVER["DOCUMENT_ROOT"]) . "/src/php/templates/add-event-form-template.php");
 
-$legsTemplate = new Template($_SERVER["DOCUMENT_ROOT"] . "/src/php/templates/legs-template.php");
+$legsTemplate = new Template(dirname($_SERVER["DOCUMENT_ROOT"]) . "/src/php/templates/legs-template.php");
 
 $terrainId = null;
 $organizer = "";
@@ -27,12 +27,12 @@ if (isset($_POST['terrainId'])) {
 } else if (isset($_GET['terrainId'])) {
     $terrainId = $_GET['terrainId'];
 } else {
-    header('Location: ' . "/public/views/home");
+    header('Location: ' . "/views/home");
 }
 
 $receivedElement = DatabaseService::query("SELECT * FROM  sport_terrain where id = '" . DatabaseService::escapeString($terrainId) . "'");
 if ($receivedElement === null || sizeof($receivedElement) === 0) {
-    header('Location: ' . "/public/views/home");
+    header('Location: ' . "/views/home");
 }
 
 $formTemplate->setVariable('terrainId', $terrainId);

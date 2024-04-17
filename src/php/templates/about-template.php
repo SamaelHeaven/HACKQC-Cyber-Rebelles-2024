@@ -5,7 +5,7 @@
         et gratuit, notre site web répertorie les différents emplacements et infrastructures liés aux sports disponibles
         dans la région.
     </p>
-    <img src="/public/images/soccer-game.jpg" alt="soccer-game">
+    <img src="/images/soccer-game.jpg" alt="soccer-game">
     <p class="mb-4">
         Selon nous, le sport est très bénéfique pour la santé. Nous avions l’impression que certaines villes ne
         faisaient pas beaucoup la promotion de leurs activités mises en place pour leurs citoyens, ce qui est l’une des
@@ -13,7 +13,7 @@
     </p>
 
     <div class="d-lg-flex gap-4">
-        <img src="/public/images/training.jpg" alt="training" class="mx-auto">
+        <img src="/images/training.jpg" alt="training" class="mx-auto">
         <p class="ms-auto mt-auto mb-auto">
             Nous pensons fortement que cela pourrait intéresser une grande partie de la
             population et ainsi inciter ceux qui veulent faire davantage de sport dans leur municipalité à se lancer et
@@ -28,7 +28,7 @@
             permettre à l’activité d’être connu par le plus de personnes possible pour que les gens puissent en
             profiter.
         </p>
-        <img src="/public/images/locations-sport.png" alt="locations-sport" class="my-4 mx-auto">
+        <img src="/images/locations-sport.png" alt="locations-sport" class="my-4 mx-auto">
     </div>
 
     <p class="pb-3">

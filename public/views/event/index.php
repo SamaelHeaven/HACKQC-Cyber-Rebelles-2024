@@ -1,13 +1,13 @@
 <?php
 
-require_once($_SERVER["DOCUMENT_ROOT"] . "/src/php/services/DatabaseService.php");
-require_once($_SERVER["DOCUMENT_ROOT"] . "/src/php/models/Template.php");
-require_once $_SERVER["DOCUMENT_ROOT"] . "/src/php/models/CurrentPage.php";
+require_once(dirname($_SERVER["DOCUMENT_ROOT"]) . "/src/php/services/DatabaseService.php");
+require_once(dirname($_SERVER["DOCUMENT_ROOT"]) . "/src/php/models/Template.php");
+require_once dirname($_SERVER["DOCUMENT_ROOT"]) . "/src/php/models/CurrentPage.php";
 
-$headTemplate = new Template($_SERVER["DOCUMENT_ROOT"] . "/src/php/templates/head-template.php");
+$headTemplate = new Template(dirname($_SERVER["DOCUMENT_ROOT"]) . "/src/php/templates/head-template.php");
 $headTemplate->setVariable("title", "FitQuest - Événement");
 
-$legsTemplate = new Template($_SERVER["DOCUMENT_ROOT"] . "/src/php/templates/legs-template.php");
+$legsTemplate = new Template(dirname($_SERVER["DOCUMENT_ROOT"]) . "/src/php/templates/legs-template.php");
 
 if (isset($_POST['deleteEvent'])) {
     $eventToDeleteId = $_POST['deleteEvent'];
@@ -32,18 +32,18 @@ if (isset($_POST['deleteEvent'])) {
 $id = $_GET['id'] ?? null;
 
 if ($id === null) {
-    header('location: /public/views/home/');
+    header('location: /views/home/');
 }
 
 $event = DatabaseService::query("SELECT * FROM event WHERE id = '$id'");
 
 if ($event === null || sizeof($event) === 0) {
-    header('location: /public/views/home/');
+    header('location: /views/home/');
 }
 
 $event = $event[0];
 
-$eventDetailsTemplate = new Template($_SERVER["DOCUMENT_ROOT"] . "/src/php/templates/event-details-template.php");
+$eventDetailsTemplate = new Template(dirname($_SERVER["DOCUMENT_ROOT"]) . "/src/php/templates/event-details-template.php");
 $eventDetailsTemplate->setVariable("event", $event);
 
 ?>

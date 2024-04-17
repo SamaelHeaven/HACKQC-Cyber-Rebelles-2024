@@ -5,7 +5,7 @@
  * CurrentPage $currentPage: The current page of the site
  */
 
-require_once $_SERVER["DOCUMENT_ROOT"] . "/src/php/models/CurrentPage.php";
+require_once dirname($_SERVER["DOCUMENT_ROOT"]) . "/src/php/models/CurrentPage.php";
 
 $title ??= "";
 $currentPage ??= CurrentPage::None;
@@ -22,8 +22,8 @@ $currentPage ??= CurrentPage::None;
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
           integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
           crossorigin=""/>
-    <link rel="stylesheet" href="/public/stylesheets/vendor/leaflet/marker-cluster.css">
-    <link rel="stylesheet" href="/public/stylesheets/fit-quest/styles.css">
+    <link rel="stylesheet" href="/stylesheets/vendor/leaflet/marker-cluster.css">
+    <link rel="stylesheet" href="/stylesheets/fit-quest/styles.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
             crossorigin="anonymous"></script>
@@ -31,9 +31,9 @@ $currentPage ??= CurrentPage::None;
             integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
             crossorigin=""></script>
     <script src="https://kit.fontawesome.com/74353d55c6.js" crossorigin="anonymous"></script>
-    <script src="/public/javascript/vendor/leaflet/marker-cluster.js"></script>
-    <script type="module" src="/public/javascript/main.js"></script>
-    <link rel="icon" type="image/png" href="/public/images/fit-quest-logo.png">
+    <script src="/javascript/vendor/leaflet/marker-cluster.js"></script>
+    <script type="module" src="/javascript/main.js"></script>
+    <link rel="icon" type="image/png" href="/images/fit-quest-logo.png">
     <title><?= $title ?></title>
 </head>
 <!-- Google tag (gtag.js) -->
@@ -51,8 +51,8 @@ $currentPage ??= CurrentPage::None;
         <div class="container">
             <header class="w-100 d-md-flex justify-content-between">
                 <div class="d-flex justify-content-between gap-2 flex-wrap">
-                    <a class="navbar-brand d-flex gap-2 align-items-center" href="/public/views/home">
-                        <img src="/public/images/fit-quest-logo.png" alt="Logo"
+                    <a class="navbar-brand d-flex gap-2 align-items-center" href="/views/home">
+                        <img src="/images/fit-quest-logo.png" alt="Logo"
                              class="d-inline-block align-text-top nav-logo">
                         <h1 class="nav-name fw-light mb-0">FitQuest</h1>
                     </a>
@@ -67,9 +67,9 @@ $currentPage ??= CurrentPage::None;
                 <div class="collapse navbar-collapse" id="mobileMenu">
                     <div class="navbar-nav w-100 d-flex flex-row align-items-center justify-content-end gap-4 ">
                         <a class="nav-link<?= $currentPage === CurrentPage::Home ? " active" : "" ?>"
-                           href="/public/views/home">Accueil</a>
+                           href="/views/home">Accueil</a>
                         <a class="nav-link<?= $currentPage === CurrentPage::About ? " active" : "" ?>"
-                           href="/public/views/about">À propos</a>
+                           href="/views/about">À propos</a>
                     </div>
                 </div>
             </header>

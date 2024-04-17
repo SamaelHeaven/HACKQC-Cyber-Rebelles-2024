@@ -56,7 +56,7 @@ h6 {
     left: 50%;
     transform: translateX(-50%);
     opacity: 0.2;
-    background-image: url("/public/images/fit-quest-logo.png");
+    background-image: url("../../images/fit-quest-logo.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;

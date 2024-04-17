@@ -4,7 +4,7 @@
  * array $event: The event of the page
  */
 
-require_once($_SERVER["DOCUMENT_ROOT"] . "/src/php/services/DatabaseService.php");
+require_once(dirname($_SERVER["DOCUMENT_ROOT"]) . "/src/php/services/DatabaseService.php");
 
 function formatString($string): string
 {
@@ -18,7 +18,7 @@ if (!isset($event)) {
 $sportTerrain = DatabaseService::query("SELECT * FROM sport_terrain WHERE id = '" . $event['sport_terrain_id'] . "'");
 
 if ($sportTerrain === null || sizeof($sportTerrain) === 0) {
-    header('location: /public/views/home/');
+    header('location: /views/home/');
 }
 
 $sportTerrain = $sportTerrain[0];
@@ -33,7 +33,7 @@ $sportTerrain = $sportTerrain[0];
             <h2 class="text-break">
                 <?= formatString($event['event_name']) ?>
             </h2>
-            <form action="/public/views/event/" method="post">
+            <form action="/views/event/" method="post">
                 <button type="submit" name="deleteEvent" value="<?= formatString($event['id']) ?>"
                         class="btn btn-danger">
                     <i class="fa-solid fa-trash"></i>

@@ -25,11 +25,11 @@ export class MapComponent extends Component {
     }
 
     public override onAppear(): void {
+        this.shouldUpdate = false;
         this._initMap();
         this._initMarkers();
         this._displaySportTerrains();
         this._displayCyclePaths();
-        this.shouldUpdate = false;
         (this as any).loaded = true;
     }
 
@@ -94,6 +94,7 @@ export class MapComponent extends Component {
             marker.on('click', (): void => {
                 this._onSportTerrainClick(Number(sportTerrain.id)).then();
             });
+
             marker.sportTerrain = true;
             if (Number(sportTerrain.nb_events) > 0) {
                 const numberMarker = L.marker([sportTerrain.latitude, sportTerrain.longitude], {
@@ -104,10 +105,13 @@ export class MapComponent extends Component {
                         iconSize: [20, 20]
                     })
                 });
+
                 this._markers.addLayer(numberMarker);
             }
+
             this._markers.addLayer(marker);
         }
+
         this._map.addLayer(this._markers);
     }
 
@@ -121,6 +125,7 @@ export class MapComponent extends Component {
                     coordinates: coordinates
                 }
             };
+
             const geoJson: string = JSON.stringify(geoJsonFeature);
             L.geoJSON(JSON.parse(geoJson), {
                 style: (): object => {

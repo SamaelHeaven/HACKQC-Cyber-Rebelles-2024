@@ -123,23 +123,28 @@ export class PanelComponent extends Component {
                     ${(this._sportTerrain.modification_date === null ? "" : `        
                     <tr>
                         <th scope="row">Date de modification</th>
-                        <td>${this._sportTerrain.modification_date.toString().substring(0, this._sportTerrain.modification_date.toString().length - 3)}</td>
+                        <td>${this._sportTerrain.modification_date.substring(0, this._sportTerrain.modification_date.length - 3)}</td>
                     </tr>`)}
                 </tbody>
             </table>
         `;
     }
     _renderEvents() {
-        function formatString(str) {
+        function format(str) {
             return escape(str.replace(/&amp;#039;&amp;#039;/g, "'"));
         }
         let result = "<div class='mb-3'>";
-        result += `<a class="btn btn-secondary on-top w-100 fs-4 fw-bold" href="/public/views/add-event/?terrainId=${this._sportTerrain.id}"><i class="fa-solid fa-plus"></i> Ajouter un événement</a>`;
+        result += `
+            <a class="btn btn-secondary on-top w-100 fs-4 fw-bold" href="/public/views/add-event/?terrainId=${this._sportTerrain.id}">
+                <i class="fa-solid fa-plus"></i> 
+                Ajouter un événement
+            </a>
+        `;
         for (const event of this._events) {
             result += `
-                <a class="border rounded p-3 text-decoration-none text-black border border-2 mt-3 w-100 fw-bold d-flex justify-content-between align-items-center gap-3 flex-wrap event-button on-top bg-white text-break" href="/public/views/event/?id=${formatString(event.id)}">
-                    <span>${formatString(event.organizer)} - ${formatString(event.event_name)}</span>
-                    <span>${formatString(event.start_date.toString())}</span>
+                <a class="border rounded p-3 text-decoration-none text-black border border-2 mt-3 w-100 fw-bold d-flex justify-content-between align-items-center gap-3 flex-wrap event-button on-top bg-white text-break" href="/public/views/event/?id=${format(event.id)}">
+                    <span>${format(event.organizer)} - ${format(event.event_name)}</span>
+                    <span>${format(event.start_date)}</span>
                 </a>
             `;
         }

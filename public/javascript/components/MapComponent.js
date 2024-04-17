@@ -26,11 +26,11 @@ export class MapComponent extends Component {
         this._cyclePaths = cyclePaths;
     }
     onAppear() {
+        this.shouldUpdate = false;
         this._initMap();
         this._initMarkers();
         this._displaySportTerrains();
         this._displayCyclePaths();
-        this.shouldUpdate = false;
         this.loaded = true;
     }
     render() {

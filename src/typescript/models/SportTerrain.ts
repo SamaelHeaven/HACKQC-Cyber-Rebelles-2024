@@ -6,8 +6,8 @@ export interface SportTerrain {
     city: string;
     address: string | null;
     parc: string | null;
-    creation_date: Date | null;
-    modification_date: Date | null;
+    creation_date: string | null;
+    modification_date: string | null;
     longitude: string;
     latitude: string;
     nb_events: string;

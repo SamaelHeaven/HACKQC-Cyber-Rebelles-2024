@@ -37,7 +37,7 @@ export class PanelComponent extends Component {
             this._mapComponent = this.queryComponent(MapComponent.definition.tag);
             await new Promise(r => setTimeout(r, 100));
         }
-        this.subscribe(this._mapComponent, "loaded");
+        this._mapComponent.subscribers.push([this, "loaded"]);
     }
     render() {
         if (!this._mapComponent.loaded) {

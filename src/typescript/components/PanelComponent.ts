@@ -38,7 +38,7 @@ export class PanelComponent extends Component {
             await new Promise(r => setTimeout(r, 100));
         }
 
-        this.subscribe(this._mapComponent, "loaded");
+        this._mapComponent.subscribers.push([this as Component, "loaded"]);
     }
 
     public override render(): string {

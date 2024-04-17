@@ -3,9 +3,9 @@
 function titleCase($string): string
 {
     $firstChar = mb_substr($string, 0, 1);
-    $restChars = mb_substr($string, 1);
-    $restCharsLower = mb_strtolower($restChars);
-    return $firstChar . $restCharsLower;
+    $otherChars = mb_substr($string, 1);
+    $otherCharsLower = mb_strtolower($otherChars);
+    return $firstChar . $otherCharsLower;
 }
 
 require_once(dirname($_SERVER["DOCUMENT_ROOT"]) . "/src/php/services/DatabaseService.php");

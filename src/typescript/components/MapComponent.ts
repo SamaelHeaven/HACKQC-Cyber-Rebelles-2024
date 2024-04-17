@@ -1,9 +1,10 @@
-import {Component, ComponentDefinition, State} from "../vendor/nova/nova.js";
+import {Component, ComponentDefinition} from "../vendor/nova/nova.js";
 import {SportTerrain} from "../models/SportTerrain.js";
 import {CyclePath} from "../models/CyclePath.js";
 import {SportTerrainService} from "../services/SportTerrainService.js";
 import {CyclePathService} from "../services/CyclePathService.js";
 import {PanelComponent} from "./PanelComponent.js";
+import {HomeComponent} from "./HomeComponent.js";
 
 declare const L: any;
 
@@ -13,7 +14,7 @@ export class MapComponent extends Component {
     private _cyclePaths: CyclePath[];
     private _map: any;
     private _markers: any;
-    @State public readonly loaded: boolean = false;
+    private _homeComponent: HomeComponent;
 
     public override async onInit(): Promise<void> {
         const [sportTerrains, cyclePaths] = await Promise.all([
@@ -22,6 +23,7 @@ export class MapComponent extends Component {
         ]);
         this._sportTerrains = sportTerrains;
         this._cyclePaths = cyclePaths;
+        this._homeComponent = this.queryComponent(HomeComponent.definition.tag);
     }
 
     public override onAppear(): void {
@@ -30,7 +32,7 @@ export class MapComponent extends Component {
         this._initMarkers();
         this._displaySportTerrains();
         this._displayCyclePaths();
-        (this as any).loaded = true;
+        this._homeComponent.loaded = true;
     }
 
     public override render(): string {

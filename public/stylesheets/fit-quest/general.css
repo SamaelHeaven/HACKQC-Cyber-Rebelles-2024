@@ -109,3 +109,8 @@ h6 {
 .cycle-path-legend {
     background: #008000;
 }
+
+.loader {
+    width: 6rem;
+    height: auto;
+}

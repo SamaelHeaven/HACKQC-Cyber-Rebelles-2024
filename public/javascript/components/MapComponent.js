@@ -1,22 +1,10 @@
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
 var _a;
-import { Component, State } from "../vendor/nova/nova.js";
+import { Component } from "../vendor/nova/nova.js";
 import { SportTerrainService } from "../services/SportTerrainService.js";
 import { CyclePathService } from "../services/CyclePathService.js";
 import { PanelComponent } from "./PanelComponent.js";
+import { HomeComponent } from "./HomeComponent.js";
 export class MapComponent extends Component {
-    constructor() {
-        super(...arguments);
-        this.loaded = false;
-    }
     async onInit() {
         const [sportTerrains, cyclePaths] = await Promise.all([
             SportTerrainService.getList(),
@@ -24,6 +12,7 @@ export class MapComponent extends Component {
         ]);
         this._sportTerrains = sportTerrains;
         this._cyclePaths = cyclePaths;
+        this._homeComponent = this.queryComponent(HomeComponent.definition.tag);
     }
     onAppear() {
         this.shouldUpdate = false;
@@ -31,7 +20,7 @@ export class MapComponent extends Component {
         this._initMarkers();
         this._displaySportTerrains();
         this._displayCyclePaths();
-        this.loaded = true;
+        this._homeComponent.loaded = true;
     }
     render() {
         return `
@@ -130,7 +119,3 @@ export class MapComponent extends Component {
 }
 _a = MapComponent;
 MapComponent.definition = _a.define("map-component");
-__decorate([
-    State,
-    __metadata("design:type", Boolean)
-], MapComponent.prototype, "loaded", void 0);

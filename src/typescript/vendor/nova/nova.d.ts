@@ -16,7 +16,7 @@ export declare abstract class Component {
     readonly initialized: boolean;
     readonly appeared: boolean;
     readonly keys: ReadonlyArray<string>;
-    readonly subscribers: [Component, keyof this][];
+    readonly subscribers: [Component | (() => void), keyof this][];
     shouldUpdate: boolean;
     constructor(element: HTMLElement);
     protected static define(tag: string): ComponentDefinition;
@@ -29,7 +29,7 @@ export declare abstract class Component {
     onAppear(): void;
     onUpdate(): void;
     onDestroy(): void;
-    onMorph(toElement: HTMLElement): void;
+    onMorph(toElement: HTMLElement): void | boolean;
     onAttributeChanged(attribute: string, oldValue: string, newValue: string): void;
     onClick(event: Events.Mouse): any;
     onDblClick(event: Events.Mouse): any;

@@ -2,14 +2,12 @@ import {Component, ComponentDefinition, State, Event, escape} from "../vendor/no
 import {SportTerrain} from "../models/SportTerrain.js";
 import {SportEvent} from "../models/SportEvent.js";
 import {SportEventService} from "../services/SportEventService.js";
-import {MapComponent} from "./MapComponent.js";
 
 export class PanelComponent extends Component {
     public static readonly definition: ComponentDefinition = this.define("panel-component");
     @State private _sportTerrain?: SportTerrain;
     @State private _section: "info" | "events" = "info";
     private _events: SportEvent[] = [];
-    private _mapComponent: MapComponent;
 
     @Event("click")
     private readonly _onInfoClick = function (): void {
@@ -32,20 +30,7 @@ export class PanelComponent extends Component {
         });
     }
 
-    public override async onInit(): Promise<void> {
-        while (!this._mapComponent) {
-            this._mapComponent = this.queryComponent(MapComponent.definition.tag);
-            await new Promise(r => setTimeout(r, 50));
-        }
-
-        this._mapComponent.subscribers.push([this as Component, "loaded"]);
-    }
-
     public override render(): string {
-        if (!this._mapComponent.loaded) {
-            return "";
-        }
-
         return `
             <div class="col-12 col-md-4 overflow-auto p-3 map-panel">
                 ${this._sportTerrain ? this._renderPanel() : this._renderAlert()}

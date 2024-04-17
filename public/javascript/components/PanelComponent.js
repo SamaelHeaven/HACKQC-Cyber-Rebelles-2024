@@ -10,7 +10,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var _a;
 import { Component, State, Event, escape } from "../vendor/nova/nova.js";
 import { SportEventService } from "../services/SportEventService.js";
-import { MapComponent } from "./MapComponent.js";
 export class PanelComponent extends Component {
     constructor() {
         super(...arguments);
@@ -32,17 +31,7 @@ export class PanelComponent extends Component {
             this._sportTerrain = sportTerrain;
         });
     }
-    async onInit() {
-        while (!this._mapComponent) {
-            this._mapComponent = this.queryComponent(MapComponent.definition.tag);
-            await new Promise(r => setTimeout(r, 50));
-        }
-        this._mapComponent.subscribers.push([this, "loaded"]);
-    }
     render() {
-        if (!this._mapComponent.loaded) {
-            return "";
-        }
         return `
             <div class="col-12 col-md-4 overflow-auto p-3 map-panel">
                 ${this._sportTerrain ? this._renderPanel() : this._renderAlert()}

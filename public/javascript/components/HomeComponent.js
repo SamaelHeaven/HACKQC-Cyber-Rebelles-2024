@@ -22,7 +22,7 @@ export class HomeComponent extends Component {
                         <img class="loader" src="/images/loader.gif" alt="Chargement...">
                     </div>
                 ` : ""}
-                <map-component ${this.loaded ? "" : `class="invisible"`}></map-component>
+                <map-component></map-component>
                 <panel-component ${this.loaded ? "" : `class="d-none"`}></panel-component>
             </div>
         `;

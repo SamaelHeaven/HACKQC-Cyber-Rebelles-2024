@@ -16,11 +16,11 @@ export class MapComponent extends Component {
     }
     onAppear() {
         this.shouldUpdate = false;
+        this._homeComponent.loaded = true;
         this._initMap();
         this._initMarkers();
         this._displaySportTerrains();
         this._displayCyclePaths();
-        this._homeComponent.loaded = true;
     }
     render() {
         return `

@@ -28,11 +28,11 @@ export class MapComponent extends Component {
 
     public override onAppear(): void {
         this.shouldUpdate = false;
+        this._homeComponent.loaded = true;
         this._initMap();
         this._initMarkers();
         this._displaySportTerrains();
         this._displayCyclePaths();
-        this._homeComponent.loaded = true;
     }
 
     public override render(): string {

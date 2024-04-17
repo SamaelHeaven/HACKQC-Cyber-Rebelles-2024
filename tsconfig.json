@@ -1,9 +1,11 @@
 {
   "compilerOptions": {
+    "target": "es2017",
     "outDir": "public/javascript",
-    "target": "ES6",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
     "lib": [
-      "ES6",
+      "es2017",
       "dom"
     ]
   }

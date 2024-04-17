@@ -17,7 +17,9 @@
 }
 
 .info-footer {
-    gap: 8rem;
+    width: 100%;
+    justify-content: space-around;
+    gap: 2rem;
 }
 
 .footer-text {
@@ -40,15 +42,9 @@
     font-size: 13px;
 }
 
-@media (max-width: 990px) {
-    .info-footer {
-        gap: 6rem;
-    }
-}
-
 @media (max-width: 770px) {
     .info-footer {
-        gap: 2rem;
+        justify-content: space-between;
     }
 
     .footer-content {

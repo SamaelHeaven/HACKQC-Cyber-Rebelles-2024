@@ -15,6 +15,6 @@ $mapTemplate = new Template($_SERVER["DOCUMENT_ROOT"] . "/src/php/templates/map-
 ?>
 <?= $headTemplate->render() ?>
 
-<?= $mapTemplate->render() ?>
+    <home-component></home-component>
 
 <?= $legsTemplate->render() ?>

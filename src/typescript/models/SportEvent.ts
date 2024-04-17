@@ -1,4 +1,4 @@
-export interface Event {
+export interface SportEvent {
     id: string;
     sport_terrain_id: string;
     organizer: string;

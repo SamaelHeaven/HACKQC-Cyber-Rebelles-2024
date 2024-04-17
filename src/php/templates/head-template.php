@@ -31,12 +31,20 @@ $currentPage ??= CurrentPage::None;
             integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
             crossorigin=""></script>
     <script src="https://kit.fontawesome.com/74353d55c6.js" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/he/1.2.0/he.js"></script>
     <script src="/public/javascript/vendor/leaflet/marker-cluster.js"></script>
-    <script type="module" src="/public/javascript/scripts/app.js"></script>
+    <script type="module" src="/public/javascript/main.js"></script>
     <link rel="icon" type="image/png" href="/public/images/fit-quest-logo.png">
     <title><?= $title ?></title>
 </head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PN72YDLFT7"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-PN72YDLFT7');
+</script>
 <body>
 <main class="d-flex flex-column justify-content-between home-body">
     <nav class="navbar navbar-expand-md bg-body-tertiary shadow-lg">

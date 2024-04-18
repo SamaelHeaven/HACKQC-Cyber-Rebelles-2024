@@ -15,12 +15,12 @@ export class PanelComponent extends Component {
         super(...arguments);
         this._section = "info";
         this._events = [];
-        this._onInfoClick = function () {
+        this._onInfoClick = () => {
             this._section = "info";
-        }.bind(this);
-        this._onEventsClick = function () {
+        };
+        this._onEventsClick = () => {
             this._section = "events";
-        }.bind(this);
+        };
     }
     get sportTerrain() {
         return this._sportTerrain;
@@ -50,14 +50,12 @@ export class PanelComponent extends Component {
             <div class="my-4">
                 <ul class="nav nav-pills">
                     <li class="nav-item">
-                        <button ${this._onInfoClick.toString()} 
-                                class="nav-link on-top${this._section === "info" ? " active" : ""}">
+                        <button ${this._onInfoClick} class="nav-link on-top${this._section === "info" ? " active" : ""}">
                                 Info
-                       </button>
+                        </button>
                     </li>
                     <li class="nav-item">
-                        <button ${this._onEventsClick.toString()} 
-                                class="nav-link on-top${this._section === "events" ? " active" : ""}">
+                        <button ${this._onEventsClick} class="nav-link on-top${this._section === "events" ? " active" : ""}">
                             Événements
                         </button>
                     </li>
@@ -122,30 +120,25 @@ export class PanelComponent extends Component {
         function format(str) {
             return escape(str.replace(/&amp;#039;&amp;#039;/g, "'"));
         }
-        let result = "<div class='mb-3'>";
-        result += `
-            <a class="btn btn-secondary on-top w-100 fs-4 fw-bold" href="/views/add-event/?terrainId=${this._sportTerrain.id}">
-                <i class="fa-solid fa-plus"></i> 
-                Ajouter un événement
-            </a>
-        `;
-        for (const event of this._events) {
-            result += `
-                <a class="border rounded p-3 text-decoration-none text-black border border-2 mt-3 w-100 fw-bold d-flex justify-content-between align-items-center gap-3 flex-wrap event-button on-top bg-white text-break" href="/views/event/?id=${format(event.id)}">
-                    <span>${format(event.organizer)} - ${format(event.event_name)}</span>
-                    <span>${format(event.start_date)}</span>
+        return `
+            <div class='mb-3'>
+                <a class="btn btn-secondary on-top w-100 fs-4 fw-bold" href="/views/add-event/?terrainId=${this._sportTerrain.id}">
+                    <i class="fa-solid fa-plus"></i> 
+                    Ajouter un événement
                 </a>
-            `;
-        }
-        if (this._events.length === 0) {
-            result += `
-                <div class="alert alert-info mt-3 on-top text-center" role="alert">
-                    Aucun événement n'est associé à ce terrain
-                </div>
-            `;
-        }
-        result += "</div>";
-        return result;
+                ${this._events.map((event) => `
+                    <a class="border rounded p-3 text-decoration-none text-black border border-2 mt-3 w-100 fw-bold d-flex justify-content-between align-items-center gap-3 flex-wrap event-button on-top bg-white text-break" href="/views/event/?id=${format(event.id)}">
+                        <span>${format(event.organizer)} - ${format(event.event_name)}</span>
+                        <span>${format(event.start_date)}</span>
+                    </a>
+                `).join("")}
+                ${this._events.length === 0 ? `
+                    <div class="alert alert-info mt-3 on-top text-center" role="alert">
+                        Aucun événement n'est associé à ce terrain
+                    </div>
+                ` : ""}
+            </div>
+        `;
     }
 }
 _a = PanelComponent;

@@ -10,14 +10,14 @@ export class PanelComponent extends Component {
     private _events: SportEvent[] = [];
 
     @Event("click")
-    private readonly _onInfoClick = (): void => {
+    private _onInfoClick(): void {
         this._section = "info";
-    };
+    }
 
     @Event("click")
-    private readonly _onEventsClick = (): void => {
+    private _onEventsClick(): void {
         this._section = "events";
-    };
+    }
 
     public get sportTerrain() {
         return this._sportTerrain;

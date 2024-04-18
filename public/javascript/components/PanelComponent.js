@@ -15,12 +15,12 @@ export class PanelComponent extends Component {
         super(...arguments);
         this._section = "info";
         this._events = [];
-        this._onInfoClick = () => {
-            this._section = "info";
-        };
-        this._onEventsClick = () => {
-            this._section = "events";
-        };
+    }
+    _onInfoClick() {
+        this._section = "info";
+    }
+    _onEventsClick() {
+        this._section = "events";
     }
     get sportTerrain() {
         return this._sportTerrain;
@@ -153,9 +153,13 @@ __decorate([
 ], PanelComponent.prototype, "_section", void 0);
 __decorate([
     Event("click"),
-    __metadata("design:type", Object)
-], PanelComponent.prototype, "_onInfoClick", void 0);
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], PanelComponent.prototype, "_onInfoClick", null);
 __decorate([
     Event("click"),
-    __metadata("design:type", Object)
-], PanelComponent.prototype, "_onEventsClick", void 0);
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], PanelComponent.prototype, "_onEventsClick", null);

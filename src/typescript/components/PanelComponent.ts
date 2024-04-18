@@ -52,7 +52,7 @@ export class PanelComponent extends Component {
                 <ul class="nav nav-pills">
                     <li class="nav-item">
                         <button ${this._onInfoClick} class="nav-link on-top${this._section === "info" ? " active" : ""}">
-                                Info
+                            Info
                         </button>
                     </li>
                     <li class="nav-item">

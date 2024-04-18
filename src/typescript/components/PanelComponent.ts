@@ -130,7 +130,7 @@ export class PanelComponent extends Component {
                     <i class="fa-solid fa-plus"></i> 
                     Ajouter un événement
                 </a>
-                ${this._events.map((event: SportEvent) => `
+                ${this._events.map((event: SportEvent): string => `
                     <a class="border rounded p-3 text-decoration-none text-black border border-2 mt-3 w-100 fw-bold d-flex justify-content-between align-items-center gap-3 flex-wrap event-button on-top bg-white text-break" href="/views/event/?id=${format(event.id)}">
                         <span>${format(event.organizer)} - ${format(event.event_name)}</span>
                         <span>${format(event.start_date)}</span>

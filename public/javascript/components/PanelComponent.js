@@ -8,7 +8,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var _a;
-import { Component, State, Event, escape } from "../vendor/nova/nova.js";
+import { Component, State, Event } from "../vendor/nova/nova.js";
 import { SportEventService } from "../services/SportEventService.js";
 export class PanelComponent extends Component {
     constructor() {
@@ -16,10 +16,10 @@ export class PanelComponent extends Component {
         this._section = "info";
         this._events = [];
     }
-    _onInfoClick() {
+    onInfoClick() {
         this._section = "info";
     }
-    _onEventsClick() {
+    onEventsClick() {
         this._section = "events";
     }
     get sportTerrain() {
@@ -50,12 +50,12 @@ export class PanelComponent extends Component {
             <div class="my-4">
                 <ul class="nav nav-pills">
                     <li class="nav-item">
-                        <button ${this._onInfoClick} class="nav-link on-top${this._section === "info" ? " active" : ""}">
+                        <button ${this.onInfoClick} class="nav-link on-top${this._section === "info" ? " active" : ""}">
                             Info
                         </button>
                     </li>
                     <li class="nav-item">
-                        <button ${this._onEventsClick} class="nav-link on-top${this._section === "events" ? " active" : ""}">
+                        <button ${this.onEventsClick} class="nav-link on-top${this._section === "events" ? " active" : ""}">
                             Événements
                         </button>
                     </li>
@@ -118,7 +118,7 @@ export class PanelComponent extends Component {
     }
     _renderEvents() {
         function format(str) {
-            return escape(str.replace(/&amp;#039;&amp;#039;/g, "'"));
+            return he.decode(str.replace(/&amp;#039;&amp;#039;/g, "'"));
         }
         return `
             <div class='mb-3'>
@@ -156,10 +156,10 @@ __decorate([
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
-], PanelComponent.prototype, "_onInfoClick", null);
+], PanelComponent.prototype, "onInfoClick", null);
 __decorate([
     Event("click"),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
-], PanelComponent.prototype, "_onEventsClick", null);
+], PanelComponent.prototype, "onEventsClick", null);

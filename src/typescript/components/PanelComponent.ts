@@ -1,7 +1,9 @@
-import {Component, ComponentDefinition, State, Event, escape} from "../vendor/nova/nova.js";
+import {Component, ComponentDefinition, State, Event} from "../vendor/nova/nova.js";
 import {SportTerrain} from "../models/SportTerrain.js";
 import {SportEvent} from "../models/SportEvent.js";
 import {SportEventService} from "../services/SportEventService.js";
+
+declare const he: any;
 
 export class PanelComponent extends Component {
     public static readonly definition: ComponentDefinition = this.define("panel-component");
@@ -10,12 +12,12 @@ export class PanelComponent extends Component {
     private _events: SportEvent[] = [];
 
     @Event("click")
-    private _onInfoClick(): void {
+    public onInfoClick(): void {
         this._section = "info";
     }
 
     @Event("click")
-    private _onEventsClick(): void {
+    public onEventsClick(): void {
         this._section = "events";
     }
 
@@ -51,12 +53,12 @@ export class PanelComponent extends Component {
             <div class="my-4">
                 <ul class="nav nav-pills">
                     <li class="nav-item">
-                        <button ${this._onInfoClick} class="nav-link on-top${this._section === "info" ? " active" : ""}">
+                        <button ${this.onInfoClick} class="nav-link on-top${this._section === "info" ? " active" : ""}">
                             Info
                         </button>
                     </li>
                     <li class="nav-item">
-                        <button ${this._onEventsClick} class="nav-link on-top${this._section === "events" ? " active" : ""}">
+                        <button ${this.onEventsClick} class="nav-link on-top${this._section === "events" ? " active" : ""}">
                             Événements
                         </button>
                     </li>
@@ -121,7 +123,7 @@ export class PanelComponent extends Component {
 
     private _renderEvents(): string {
         function format(str: string): string {
-            return escape(str.replace(/&amp;#039;&amp;#039;/g, "'"));
+            return he.decode(str.replace(/&amp;#039;&amp;#039;/g, "'"));
         }
 
         return `

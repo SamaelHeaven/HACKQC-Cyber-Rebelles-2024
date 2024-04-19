@@ -26,6 +26,7 @@ $currentPage ??= CurrentPage::None;
           integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
     <link rel="stylesheet" href="/stylesheets/vendor/leaflet/marker-cluster.css">
+    <link rel="stylesheet" href="/stylesheets/vendor/nova/nova.css">
     <link rel="stylesheet" href="/stylesheets/fit-quest/styles.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
@@ -33,6 +34,7 @@ $currentPage ??= CurrentPage::None;
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
             integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
             crossorigin=""></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/he/1.2.0/he.js"></script>
     <script src="/javascript/vendor/leaflet/marker-cluster.js"></script>
     <script type="module" src="/javascript/main.js"></script>
     <link rel="icon" type="image/png" href="/images/fit-quest-logo.png">
